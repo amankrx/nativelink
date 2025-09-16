@@ -102,14 +102,14 @@ docker run `
 
 ### ❄️ Raw executable with Nix
 
-Slower, since it's built from source, but more flexible and supports MacOS.
+Slower, since it's built from source, but more flexible and supports macOS.
 Doesn't support native Windows, but works in WSL2.
 
 Make sure your Nix version is recent and supports flakes. For instance, install
 it via the [next-gen nix installer](https://github.com/NixOS/experimental-nix-installer).
 
 > [!CAUTION]
-> Executables built for MacOS are dynamically linked against libraries from Nix
+> Executables built for macOS are dynamically linked against libraries from Nix
 > and won't work on systems that don't have these libraries present.
 
 **Linux, MacOS, WSL2**
