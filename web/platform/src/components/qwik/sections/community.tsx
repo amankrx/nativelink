@@ -41,7 +41,7 @@ export const Community = component$(() => {
             key={communityLink.name}
             href={communityLink.link}
             aria-label={communityLink.ariaLabel}
-            class="hover:-translate-y-1 no-underline! hover:border-[purple] transition-all duration-200 bg-white/6 w-64 h-20 flex justify-center items-center rounded-[16px] shadow-md shadow-black/10 backdrop-blur-[5px] border border-white/30"
+            class="hover:-translate-y-1 no-underline! hover:border-[purple] transition-all duration-200 bg-white/80 w-64 h-20 flex justify-center items-center rounded-[16px] shadow-md shadow-black/10 backdrop-blur-[5px] border border-white/30"
           >
             <div class="flex items-center gap-2">
               {typeof communityLink.icon === "string" ? (
