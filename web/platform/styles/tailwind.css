@@ -33,7 +33,9 @@ nav a,
 }
 
 /* Black buttons need white text */
-a#button.bg-black {
+.bg-black,
+.bg-black:hover,
+.bg-black:visited {
    color: white !important;
 }
 
