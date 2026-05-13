@@ -13,33 +13,30 @@ import { Label } from "../components/text.tsx";
 const products = [
   {
     icon: <CAS />,
-    headline: "Content Addressable Storage (CAS)",
-    text: "Minimize redundant compilation of unchanged source code for compute-efficient builds",
+    headline: "Faster builds. Lower compute bills.",
+    text: "Content-addressable storage means unchanged code never compiles twice — across your team, your CI, and your agents. Every cache hit is a build you don't pay to run.",
+  },
+  {
+    icon: <RBE />,
+    headline: "Scale past one machine. Pay only for what you use.",
+    text: "Remote build execution distributes compilation across as many cores as you need — and spins them down when you're done. No idle workstations, no idle workers, no idle bill.",
   },
   {
     icon: <Security />,
-    headline: "Security (SSO, Packet Integrity)",
-    text: "Authenticate users/workers input, and outputs to guarantee secure access to projects",
-  },
-
-  {
-    icon: <RBE />,
-    headline: 'Remote Build Execution (RBE) "Preview"',
-    text: "Incorporate multi-core distribution for project builds to boost efficiency and speed up development cycles",
-  },
-
-  {
-    icon: <FreeCloud />,
-    headline: "Free Cloud",
-    text: "Fully managed simulation runtime",
+    headline: "Secure by default.",
+    text: "SSO, signed inputs, end-to-end packet integrity. Your source, your artifacts, and your supply chain — locked.",
   },
 ];
 
 export const Features = component$(() => {
   return (
-    <div class="flex flex-col items-center justify-center gap-24 section-spacing-major section-divider">
-      <Label text="a seamless experience" class="text-base px-4" />
-      <div class="flex flex-col items-center gap-12 md:flex-row md:items-start md:justify-evenly md:gap-3">
+    <div class="flex flex-col items-center justify-center gap-16 section-spacing-major section-divider">
+      <div class="text-center px-6">
+        <h2 class="text-3xl md:text-5xl font-bold text-black mb-4">
+          What You Get
+        </h2>
+      </div>
+      <div class="flex flex-col items-center gap-12 md:flex-row md:items-start md:justify-evenly md:gap-8 max-w-6xl mx-auto px-6">
         {products.map((product, _index) => (
           <BorderlessCard
             key={product.headline}

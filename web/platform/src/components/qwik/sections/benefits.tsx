@@ -6,29 +6,33 @@ import { Label } from "../components/text.tsx";
 const benefits = [
   {
     link: "https://nativelink-cdn.s3.us-east-1.amazonaws.com/robotics.mp4",
-    headline: "Made With Love In Rust",
+    headline: "Written in Rust. Built for scale.",
     description:
-      "Reduce runtime errors, guarantee memory-safety without requiring garbage collection, & eliminate race conditions at any scale.",
+      "Memory-safe, race-free, no garbage collector to stall your hot path. Over a billion build requests a month, in production.",
   },
   {
     link: "https://nativelink-cdn.s3.us-east-1.amazonaws.com/video recognition.mp4",
-    headline: "Effortless Implementation",
+    headline: "Ten minutes to your first cache hit.",
     description:
-      "Kickstart NativeLink in 10 minutes with an open-source build cache and remote executor tailored for large code bases",
+      "One Docker command. Drops into your existing Bazel, Buck2, Reclient, or CMake setup with zero rewrites.",
   },
   {
     link: "https://nativelink-cdn.s3.us-east-1.amazonaws.com/medicine_tech.mp4",
-    headline: "Universal Language & Platform Compatibility",
+    headline: "Works with what you've got.",
     description:
-      "Extensive compatibility and support with popular languages (C++, Rust, Python & more), build tools (Bazel, Buck2, & Reclient) and cloud providers (AWS/GCP)",
+      "C++, Rust, Python, Go, and more. Bazel, Buck2, Reclient, and CMake. AWS, GCP, or your own hardware. No lock-in.",
   },
 ];
 
 export const Benefits = component$(() => {
   return (
-    <div class="flex w-full flex-col items-center justify-center gap-10 section-spacing-major section-divider">
-      <Label text="the nativelink difference" class="text-base px-4" />
-      <div class="flex flex-col gap-10 md:flex-row">
+    <div class="flex w-full flex-col items-center justify-center gap-16 section-spacing-major section-divider">
+      <div class="text-center px-6">
+        <h2 class="text-3xl md:text-5xl font-bold text-black mb-4">
+          The NativeLink Difference
+        </h2>
+      </div>
+      <div class="flex flex-col gap-10 md:flex-row max-w-6xl mx-auto px-6">
         {benefits.map((benefit, _index) => (
           <VideoCard
             key={benefit.link}

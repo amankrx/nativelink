@@ -9,72 +9,42 @@ const videoMockUp =
   "https://nativelink-cdn.s3.us-east-1.amazonaws.com/Walkthrough+of+Nativelink+Cloud.mp4";
 
 export const Hero = component$(() => {
-  const rotatingText = useSignal("Accelerating Advanced CI");
-
-  useVisibleTask$(() => {
-    const options = [
-      { text: "Hermiticity is Simplicity®", duration: 15000 },
-      { text: "Accelerating Advanced CI", duration: 5000 },
-      { text: "Remote Execution in Bazel", duration: 5000 },
-      { text: "Remote Execution in Buck2", duration: 5000 },
-      { text: "Faster Chromium Builds", duration: 5000 },
-      { text: "Accelerating CMake", duration: 5000 },
-      { text: "Robotics Policy Evaluation", duration: 3000 },
-      { text: "Simulation for Semiconductors", duration: 3000 },
-    ];
-
-    let index = 0;
-    const updateText = () => {
-      const option = options[index];
-      if (option) {
-        rotatingText.value = option.text;
-        setTimeout(() => {
-          index = (index + 1) % options.length;
-          updateText();
-        }, option.duration);
-      }
-    };
-
-    updateText();
-  });
-
   return (
     <div class="relative flex w-full flex-col items-center justify-evenly gap-5 pb-10 text-black overflow-hidden">
-      {/* Remove heavy background video for clean light theme */}
-
-      {/* Overlay Image */}
-      {/* <img
-        src={Overlay.src}
-        class="absolute left-0 right-0 top-0 z-10 mx-auto h-auto w-full object-cover"
-        alt="Overlay"
-      /> */}
-
       {/* Content */}
-      <div class="relative z-20 flex w-full flex-col items-center justify-evenly gap-2 pb-10 pt-36 text-black md:w-[850px]">
+      <div class="relative z-20 flex w-full flex-col items-center justify-evenly gap-2 pb-10 pt-36 text-black md:w-[900px]">
         <div class="px-12 md:px-0 md:py-12">
-          <div class="flex flex-col items-center gap-2 text-center">
-            <h1 class="text-4xl md:text-8xl font-bold">
-              Build Software As Fast As Your Agents Can Commit
+          <div class="flex flex-col items-center gap-6 text-center">
+            <p class="text-sm md:text-base uppercase tracking-wide text-[rgb(100,100,100)] font-semibold">
+              Build infrastructure for the agentic era
+            </p>
+            <h1 class="text-4xl md:text-7xl font-bold leading-tight">
+              When agents write the code, the build system is the bottleneck.
             </h1>
-            <p class="text-xl md:text-3xl h-[2.5em] transition-opacity duration-500">
-              {rotatingText.value}
+            <p class="text-lg md:text-xl text-[rgb(60,60,60)] max-w-[800px] leading-relaxed">
+              NativeLink is the parallel compute platform that keeps builds fast as your codebase — and your agents — multiply. Rust-powered. Open source. Trusted in production at over a billion requests a month.
             </p>
           </div>
         </div>
 
-        <div class="px-8 text-center md:w-[550px]">
-          AI writes code at machine speed. Builds should too.
-        </div>
-
-        <div class="w-full p-8 flex flex-row gap-5 justify-center items-center md:flex-row">
+        <div class="w-full p-8 flex flex-col md:flex-row gap-4 justify-center items-center">
           <a
             id="button"
-            href="/docs/introduction/setup"
-            class="w-1/2 h-10 flex items-center bg-black justify-center border-black border-2 border-solid text-white transition-all duration-200 hover:bg-[rgb(40,40,40)] md:h-[44px] md:w-[193px] rounded-interactive"
+            href="https://github.com/tracemachina/nativelink"
+            target="_blank"
+            rel="noreferrer"
+            class="w-full md:w-auto h-12 px-8 flex items-center bg-black justify-center border-black border-2 border-solid text-white transition-all duration-200 hover:bg-[rgb(40,40,40)] rounded-interactive font-medium"
           >
-            Get Started →
+            Clone the repo
+          </a>
+          <a
+            href="/contact"
+            class="w-full md:w-auto h-12 px-8 flex items-center bg-transparent justify-center border-black border-2 border-solid text-black transition-all duration-200 hover:bg-[rgb(248,247,244)] rounded-interactive font-medium"
+          >
+            Talk to us
           </a>
         </div>
+
         <div class="w-full flex justify-center items-center">
           <div class="w-9/11 relative">
             <video
@@ -89,7 +59,6 @@ export const Hero = component$(() => {
             />
           </div>
         </div>
-        {/* <img alt="Nativelink UI" src={MockUp} class="w-[80vw] md:w-full" /> */}
       </div>
     </div>
   );

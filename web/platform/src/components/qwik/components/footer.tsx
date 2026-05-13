@@ -76,9 +76,12 @@ export const Footer = component$(() => {
     <footer class="relative w-full text-black border-t border-[rgb(180,180,180)] py-16 md:py-24 bg-[rgb(248,247,244)]">
       <div class="relative z-10 flex h-full w-full flex-col items-center justify-center gap-12 md:flex-row md:gap-0 px-6">
         <div class="flex w-full items-center justify-center text-[2.5rem] leading-none tracking-normal md:text-[52px]">
-          <div class="w-full flex flex-col items-center">
-            <div class="text-center">
-              Build infrastructure for the agentic era
+          <div class="w-full flex flex-col items-center gap-4">
+            <div class="text-center font-bold">
+              Let's build at the speed your code is being written.
+            </div>
+            <div class="text-lg md:text-xl text-[rgb(60,60,60)] text-center">
+              Open source. Free cloud tier. Self-host when you're ready.
             </div>
           </div>
         </div>
