@@ -30,7 +30,11 @@ nav a,
 
 #button {
    @apply no-underline;
-   color: inherit !important;
+}
+
+/* Black buttons need white text */
+a#button.bg-black {
+   color: white !important;
 }
 
 #footer-links a:hover {
