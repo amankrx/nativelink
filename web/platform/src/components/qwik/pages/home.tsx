@@ -6,6 +6,7 @@ import { Contributors } from "../sections/contributors.tsx";
 import { CTA } from "../sections/cta.tsx";
 import { Features } from "../sections/feature.tsx";
 import { Hero } from "../sections/hero.tsx";
+import { Industries } from "../sections/industries.tsx";
 import { Programmatic } from "../sections/programmatic.tsx";
 import { Stats } from "../sections/stats.tsx";
 import { Testimonial } from "../sections/testimonials.tsx";
@@ -20,6 +21,7 @@ export const LandingPage = component$(() => {
       <Features />
       <Programmatic />
       <Benefits />
+      <Industries />
       <CTA />
       <Community />
     </main>
