@@ -18,13 +18,12 @@ interface VideoCard {
 export const BorderlessCard = component$<BorderlessCard>(
   ({ icon, headline, text }) => {
     return (
-      <div class="flex h-auto w-5/6 flex-col items-start justify-start md:w-[277px] md:gap-0 p-6 card-warm">
-        <div>{icon}</div>
-        <LinearGradient
-          text={headline}
-          class="py-4 pr-8 text-[25px] md:h-[120px] md:px-0 md:py-6"
-        />
-        <span class="w-full text-[rgb(60,60,60)] md:w-[273px]">{text}</span>
+      <div class="flex h-full w-5/6 flex-col items-start justify-start md:w-[277px] p-6 card-warm">
+        <div class="mb-4">{icon}</div>
+        <h3 class="text-xl md:text-2xl font-bold text-black mb-4 leading-tight">
+          {headline}
+        </h3>
+        <p class="text-base text-[rgb(60,60,60)] leading-relaxed flex-grow">{text}</p>
       </div>
     );
   },

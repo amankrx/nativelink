@@ -36,7 +36,7 @@ export const Features = component$(() => {
           What You Get
         </h2>
       </div>
-      <div class="flex flex-col items-center gap-12 md:flex-row md:items-start md:justify-evenly md:gap-8 max-w-6xl mx-auto px-6">
+      <div class="flex flex-col items-center gap-8 md:flex-row md:items-stretch md:justify-center md:gap-6 max-w-6xl mx-auto px-6">
         {products.map((product, _index) => (
           <BorderlessCard
             key={product.headline}
