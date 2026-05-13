@@ -156,6 +156,10 @@ const SecurityAndProvenance = component$(() => {
 const Integrations = component$(() => {
   const integrations = [
     {
+      title: "AI Coding Platforms",
+      items: "Claude Code, GitHub Copilot Workspace, Devin, Cursor, Windsurf, and more.",
+    },
+    {
       title: "Languages",
       items: "C++, Rust, Python, Go, Java, Kotlin, Swift, and more.",
     },
