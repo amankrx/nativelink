@@ -42,12 +42,6 @@ export const Stats = component$(() => {
             </div>
           ))}
         </div>
-
-        <div class="mt-16 pt-8 border-t border-[rgb(220,220,220)] text-center">
-          <p class="text-lg text-[rgb(60,60,60)] mb-6">
-            Powering production builds at Samsung, Rocky Linux, and the LLVM project.
-          </p>
-        </div>
       </div>
     </div>
   );
