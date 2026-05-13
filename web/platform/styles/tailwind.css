@@ -24,9 +24,13 @@ a.astro-3ii7xxms,
 a.astro-vtgkq7vy,
 nav a,
 #Card a,
-#footer-links a,
+#footer-links a {
+   @apply no-underline;
+}
+
 #button {
    @apply no-underline;
+   color: inherit !important;
 }
 
 #footer-links a:hover {
