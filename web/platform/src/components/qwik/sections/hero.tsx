@@ -22,7 +22,7 @@ export const Hero = component$(() => {
               When agents write the code, the build system is the bottleneck.
             </h1>
             <p class="text-lg md:text-xl text-[rgb(60,60,60)] max-w-[800px] leading-relaxed">
-              NativeLink is the parallel compute platform that keeps builds fast as your codebase — and your agents — multiply. Rust-powered. Open source. Trusted in production at over a billion requests a month.
+              NativeLink is the parallel compute platform that keeps builds fast while your codebase — and your agents — multiply. Rust-powered. Open source. Trusted in production for over a billion requests a month.
             </p>
           </div>
         </div>
