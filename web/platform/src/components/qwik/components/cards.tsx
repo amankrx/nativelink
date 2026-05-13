@@ -18,7 +18,7 @@ interface VideoCard {
 export const BorderlessCard = component$<BorderlessCard>(
   ({ icon, headline, text }) => {
     return (
-      <div class="flex h-full w-5/6 flex-col items-start justify-start md:w-[277px] p-6 card-warm">
+      <div class="flex h-full w-5/6 flex-col items-start justify-start md:w-[277px] p-6">
         <div class="mb-4">{icon}</div>
         <h3 class="text-xl font-bold text-black mb-4 leading-tight">
           {headline}
