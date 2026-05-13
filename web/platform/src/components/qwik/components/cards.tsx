@@ -20,7 +20,7 @@ export const BorderlessCard = component$<BorderlessCard>(
     return (
       <div class="flex h-full w-5/6 flex-col items-start justify-start md:w-[277px] p-6 card-warm">
         <div class="mb-4">{icon}</div>
-        <h3 class="text-xl md:text-2xl font-bold text-black mb-4 leading-tight">
+        <h3 class="text-xl font-bold text-black mb-4 leading-tight">
           {headline}
         </h3>
         <p class="text-base text-[rgb(60,60,60)] leading-relaxed flex-grow">{text}</p>
@@ -45,9 +45,9 @@ export const VideoCard = component$<VideoCard>(
           </video>
         </div>
         <div class="px-6 py-4">
-          <h2 class="mb-2 flex min-h-24 items-center justify-start text-xl font-bold">
+          <h3 class="mb-2 flex min-h-24 items-center justify-start text-xl font-bold">
             <LinearGradient text={headline} />
-          </h2>
+          </h3>
           <p class="text-base text-gray-400">{description}</p>
         </div>
       </div>
