@@ -15,19 +15,19 @@ export const Hero = component$(() => {
       <div class="relative z-20 flex w-full flex-col items-center justify-evenly gap-2 pb-10 pt-36 text-black md:w-[900px]">
         <div class="px-12 md:px-0 md:py-12">
           <div class="flex flex-col items-center gap-6 text-center">
-            <p class="text-sm md:text-base uppercase tracking-wide text-[rgb(100,100,100)] font-semibold">
+            <p class="text-sm md:text-base uppercase tracking-wide text-[rgb(100,100,100)] font-semibold animate-fade-in">
               Build infrastructure for the agentic era
             </p>
-            <h1 class="text-4xl md:text-7xl font-bold leading-tight">
+            <h1 class="text-4xl md:text-7xl font-bold leading-tight animate-fade-in-up animation-delay-100">
               When agents write your code, your build system is the bottleneck.
             </h1>
-            <p class="text-lg md:text-xl text-[rgb(60,60,60)] max-w-[800px] leading-relaxed">
+            <p class="text-lg md:text-xl text-[rgb(60,60,60)] max-w-[800px] leading-relaxed animate-fade-in-up animation-delay-200">
               NativeLink is the parallel compute platform that keeps builds fast while your codebase — and your agents — multiply. Rust-powered. Open source. Trusted in production for over a billion requests a month.
             </p>
           </div>
         </div>
 
-        <div class="w-full p-8 flex flex-col md:flex-row gap-4 justify-center items-center">
+        <div class="w-full p-8 flex flex-col md:flex-row gap-4 justify-center items-center animate-fade-in-up animation-delay-300">
           <a
             id="button"
             href="https://github.com/tracemachina/nativelink"
@@ -45,7 +45,7 @@ export const Hero = component$(() => {
           </a>
         </div>
 
-        <div class="w-full flex justify-center items-center">
+        <div class="w-full flex justify-center items-center animate-fade-in animation-delay-400">
           <div class="w-9/11 relative">
             <video
               src={videoMockUp}
