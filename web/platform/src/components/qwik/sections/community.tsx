@@ -9,19 +9,19 @@ const _docsIcon =
 
 const communityLinks = [
   {
-    name: "Docs",
+    name: "Read the Docs",
     icon: _docsIcon,
     link: "/docs/introduction/setup",
     ariaLabel: "NativeLink documentation",
   },
   {
-    name: "Slack",
+    name: "Join our Slack",
     icon: <Slack />,
     link: "https://forms.gle/LtaWSixEC6bYi5xF7",
     ariaLabel: "NativeLink Slack channel",
   },
   {
-    name: "GitHub",
+    name: "Clone the Repo",
     icon: <GitHub />,
     link: "https://github.com/tracemachina/nativelink",
     ariaLabel: "NativeLink GitHub repository",
@@ -43,13 +43,13 @@ export const Community = component$(() => {
             aria-label={communityLink.ariaLabel}
             class="hover:-translate-y-1 no-underline! hover:border-[purple] transition-all duration-200 bg-white/80 w-64 h-20 flex justify-center items-center rounded-[16px] shadow-md shadow-black/10 backdrop-blur-[5px] border border-white/30"
           >
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-3">
               {typeof communityLink.icon === "string" ? (
-                <img src={communityLink.icon} alt="" class="w-12 h-12" />
+                <img src={communityLink.icon} alt="" class="w-10 h-10" />
               ) : (
                 communityLink.icon
               )}
-              {communityLink.name === "Docs" && <div>{communityLink.name}</div>}
+              <div class="font-medium">{communityLink.name}</div>
             </div>
           </a>
         ))}
