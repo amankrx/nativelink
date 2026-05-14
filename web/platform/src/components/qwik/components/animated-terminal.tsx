@@ -117,6 +117,7 @@ export const AnimatedTerminal = component$(() => {
 
     const currentTab = terminalTabs[activeTab.value];
     let timeoutId: number;
+    let hasDelayed = false;
 
     const animateLine = () => {
       if (currentLineIndex.value >= currentTab.lines.length) {
@@ -126,6 +127,7 @@ export const AnimatedTerminal = component$(() => {
           displayedLines.value = [];
           currentLineIndex.value = 0;
           currentCharIndex.value = 0;
+          hasDelayed = false;
           isAnimating.value = true;
           animateLine();
         }, 3000);
@@ -135,8 +137,9 @@ export const AnimatedTerminal = component$(() => {
       const line = currentTab.lines[currentLineIndex.value];
       const targetText = line.text;
 
-      if (currentCharIndex.value === 0 && line.delay) {
-        // Wait for delay before starting this line
+      // Apply delay only once per line
+      if (currentCharIndex.value === 0 && line.delay && !hasDelayed) {
+        hasDelayed = true;
         timeoutId = window.setTimeout(() => {
           animateLine();
         }, line.delay);
@@ -157,6 +160,7 @@ export const AnimatedTerminal = component$(() => {
         // Move to next line
         currentLineIndex.value++;
         currentCharIndex.value = 0;
+        hasDelayed = false; // Reset for next line
         timeoutId = window.setTimeout(animateLine, 50);
       }
     };
