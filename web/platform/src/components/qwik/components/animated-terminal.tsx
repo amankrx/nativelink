@@ -22,44 +22,94 @@ const terminalTabs: TerminalTab[] = [
       {
         text: "https://raw.githubusercontent.com/TraceMachina/nativelink/v1.0.0/nativelink-config/examples/basic_cas.json5",
         delay: 100,
-        instant: true, // Copy-pasted URL
+        instant: true,
+      },
+      {
+        text: "  % Total    % Received  Time",
+        delay: 200,
+        instant: true,
+      },
+      {
+        text: "100  2841  100  2841    0:00:01",
+        delay: 50,
+        instant: true,
       },
       {
         text: "",
-        delay: 200,
-      },
-      {
-        text: "# See",
         delay: 300,
-      },
-      {
-        text: "https://github.com/TraceMachina/nativelink/pkgs/container/nativelink",
-        delay: 100,
-        instant: true, // Copy-pasted URL
-      },
-      {
-        text: "",
-        delay: 200,
       },
       {
         text: "docker run \\",
-        delay: 300,
+        delay: 200,
       },
       {
         text: "-v $(pwd)/basic_cas.json:/config \\",
-        delay: 100,
+        delay: 50,
       },
       {
         text: "-p 50051:50051 \\",
-        delay: 100,
+        delay: 50,
       },
       {
         text: "ghcr.io/tracemachina/nativelink:v1.0.0 \\",
-        delay: 100,
+        delay: 50,
       },
       {
         text: "config",
+        delay: 50,
+      },
+      {
+        text: "",
+        delay: 400,
+      },
+      {
+        text: "Unable to find image locally",
+        delay: 200,
+        instant: true,
+      },
+      {
+        text: "v1.0.0: Pulling from tracemachina/nativelink",
         delay: 100,
+        instant: true,
+      },
+      {
+        text: "a1d0c7532777: Pull complete",
+        delay: 300,
+        instant: true,
+      },
+      {
+        text: "7f9a694b6f8c: Pull complete",
+        delay: 300,
+        instant: true,
+      },
+      {
+        text: "Status: Downloaded newer image",
+        delay: 200,
+        instant: true,
+      },
+      {
+        text: "",
+        delay: 400,
+      },
+      {
+        text: "INFO nativelink::config: Loading config from /config",
+        delay: 200,
+        instant: true,
+      },
+      {
+        text: "INFO nativelink::cas_server: CAS server listening on 0.0.0.0:50051",
+        delay: 150,
+        instant: true,
+      },
+      {
+        text: "INFO nativelink::scheduler: Scheduler initialized",
+        delay: 150,
+        instant: true,
+      },
+      {
+        text: "✓ NativeLink ready to serve builds",
+        delay: 300,
+        instant: true,
       },
     ],
   },
@@ -73,31 +123,94 @@ const terminalTabs: TerminalTab[] = [
       {
         text: "https://raw.githubusercontent.com/TraceMachina/nativelink/v1.0.0/nativelink-config/examples/basic_cas.json5",
         delay: 100,
-        instant: true, // Copy-pasted URL
+        instant: true,
+      },
+      {
+        text: "  % Total    % Received  Time",
+        delay: 200,
+        instant: true,
+      },
+      {
+        text: "100  2841  100  2841    0:00:01",
+        delay: 50,
+        instant: true,
       },
       {
         text: "",
-        delay: 200,
-      },
-      {
-        text: "docker run \\",
         delay: 300,
       },
       {
+        text: "docker run \\",
+        delay: 200,
+      },
+      {
         text: "-v $(pwd)/basic_cas.json:/config \\",
-        delay: 100,
+        delay: 50,
       },
       {
         text: "-p 50051:50051 \\",
-        delay: 100,
+        delay: 50,
       },
       {
         text: "ghcr.io/tracemachina/nativelink:v1.0.0 \\",
-        delay: 100,
+        delay: 50,
       },
       {
         text: "config",
+        delay: 50,
+      },
+      {
+        text: "",
+        delay: 400,
+      },
+      {
+        text: "Unable to find image locally",
+        delay: 200,
+        instant: true,
+      },
+      {
+        text: "v1.0.0: Pulling from tracemachina/nativelink",
         delay: 100,
+        instant: true,
+      },
+      {
+        text: "a1d0c7532777: Pull complete",
+        delay: 300,
+        instant: true,
+      },
+      {
+        text: "7f9a694b6f8c: Pull complete",
+        delay: 300,
+        instant: true,
+      },
+      {
+        text: "Status: Downloaded newer image",
+        delay: 200,
+        instant: true,
+      },
+      {
+        text: "",
+        delay: 400,
+      },
+      {
+        text: "INFO nativelink::config: Loading config from /config",
+        delay: 200,
+        instant: true,
+      },
+      {
+        text: "INFO nativelink::cas_server: CAS server listening on 0.0.0.0:50051",
+        delay: 150,
+        instant: true,
+      },
+      {
+        text: "INFO nativelink::scheduler: Scheduler initialized",
+        delay: 150,
+        instant: true,
+      },
+      {
+        text: "✓ NativeLink ready to serve builds",
+        delay: 300,
+        instant: true,
       },
     ],
   },
@@ -109,6 +222,7 @@ export const AnimatedTerminal = component$(() => {
   const isAnimating = useSignal(false);
   const currentLineIndex = useSignal(0);
   const currentCharIndex = useSignal(0);
+  const terminalRef = useSignal<HTMLDivElement>();
 
   useVisibleTask$(({ track, cleanup }) => {
     track(() => activeTab.value);
@@ -168,6 +282,11 @@ export const AnimatedTerminal = component$(() => {
         );
         displayedLines.value = newLines;
 
+        // Auto-scroll to bottom
+        if (terminalRef.value) {
+          terminalRef.value.scrollTop = terminalRef.value.scrollHeight;
+        }
+
         currentCharIndex.value++;
         timeoutId = window.setTimeout(animateLine, 30); // Typing speed
       } else {
@@ -211,7 +330,10 @@ export const AnimatedTerminal = component$(() => {
       </div>
 
       {/* Terminal window */}
-      <div class="bg-[#2d3748] rounded-b rounded-tr p-8 font-mono text-sm text-gray-100 min-h-[400px] relative overflow-hidden border-2 border-[#4a5568]">
+      <div
+        ref={terminalRef}
+        class="bg-[#2d3748] rounded-b rounded-tr p-8 font-mono text-sm text-gray-100 h-[400px] relative overflow-y-auto border-2 border-[#4a5568]"
+      >
         <div class="space-y-1">
           {displayedLines.value.map((line, index) => (
             <div key={index} class="whitespace-pre-wrap break-all">
