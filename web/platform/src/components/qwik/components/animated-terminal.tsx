@@ -3,6 +3,7 @@ import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 interface TerminalLine {
   text: string;
   delay?: number; // Delay before starting this line (ms)
+  instant?: boolean; // Appears instantly (e.g., pasted URL)
 }
 
 interface TerminalTab {
@@ -21,6 +22,7 @@ const terminalTabs: TerminalTab[] = [
       {
         text: "https://raw.githubusercontent.com/TraceMachina/nativelink/v1.0.0/nativelink-config/examples/basic_cas.json5",
         delay: 100,
+        instant: true, // Copy-pasted URL
       },
       {
         text: "",
@@ -33,6 +35,7 @@ const terminalTabs: TerminalTab[] = [
       {
         text: "https://github.com/TraceMachina/nativelink/pkgs/container/nativelink",
         delay: 100,
+        instant: true, // Copy-pasted URL
       },
       {
         text: "",
@@ -70,6 +73,7 @@ const terminalTabs: TerminalTab[] = [
       {
         text: "https://raw.githubusercontent.com/TraceMachina/nativelink/v1.0.0/nativelink-config/examples/basic_cas.json5",
         delay: 100,
+        instant: true, // Copy-pasted URL
       },
       {
         text: "",
@@ -143,6 +147,16 @@ export const AnimatedTerminal = component$(() => {
         timeoutId = window.setTimeout(() => {
           animateLine();
         }, line.delay);
+        return;
+      }
+
+      // Check if this line should appear instantly (e.g., pasted)
+      if (line.instant && currentCharIndex.value === 0) {
+        const newLines = [...displayedLines.value];
+        newLines[currentLineIndex.value] = targetText;
+        displayedLines.value = newLines;
+        currentCharIndex.value = targetText.length + 1;
+        timeoutId = window.setTimeout(animateLine, 50);
         return;
       }
 
