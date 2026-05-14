@@ -8,6 +8,7 @@ import { Features } from "../sections/feature.tsx";
 import { Hero } from "../sections/hero.tsx";
 import { Industries } from "../sections/industries.tsx";
 import { Programmatic } from "../sections/programmatic.tsx";
+import { QuickStart } from "../sections/quick-start.tsx";
 import { Stats } from "../sections/stats.tsx";
 import { Testimonial } from "../sections/testimonials.tsx";
 
@@ -15,6 +16,7 @@ export const LandingPage = component$(() => {
   return (
     <main class="w-full z-20 text-black">
       <Hero />
+      <QuickStart />
       <Stats />
       <Testimonial />
       <Contributors />
