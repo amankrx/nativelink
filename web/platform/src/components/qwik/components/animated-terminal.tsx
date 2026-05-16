@@ -34,7 +34,9 @@ export const AnimatedTerminal = component$(() => {
       }
 
       const line = currentTab.lines[lineIndex];
-      const isCommand = line.text.startsWith("curl") || line.text.startsWith("docker") || line.text.startsWith(">");
+      const isShellCommand = line.text.startsWith("curl") || line.text.startsWith("docker");
+      const isPrompt = line.text.startsWith(">");
+      const isCommand = isShellCommand || isPrompt;
 
       if (isCommand) {
         // Show command pasted in bottom input (instant)
@@ -43,7 +45,9 @@ export const AnimatedTerminal = component$(() => {
 
         // After brief pause, move to output
         timeoutId = window.setTimeout(() => {
-          displayedLines.value = [...displayedLines.value, "▶ " + line.text];
+          // Only prefix shell commands with $, not Claude prompts
+          const prefix = isShellCommand ? "$ " : "";
+          displayedLines.value = [...displayedLines.value, prefix + line.text];
           currentInput.value = "";
           isTyping.value = false;
           lineIndex++;
@@ -124,7 +128,7 @@ export const AnimatedTerminal = component$(() => {
             onClick$={() => {
               activeTab.value = index;
             }}
-            class={`px-6 py-3 font-medium transition-all duration-200 ${
+            class={`px-4 py-3 font-medium transition-all duration-200 ${
               activeTab.value === index
                 ? "bg-[#2d3748] text-white border-t-2 border-l-2 border-r-2 border-[#4a5568] rounded-t"
                 : "bg-[#1a202c] text-gray-400 hover:text-gray-300"
@@ -144,23 +148,22 @@ export const AnimatedTerminal = component$(() => {
         >
           <div class="space-y-1">
             {displayedLines.value.map((line, index) => {
-              // Color coding based on line content
-              let colorClass = "text-gray-300";
+              let colorClass = "text-gray-200";
 
-              if (line.startsWith("▶")) {
+              // Order: specific to generic
+              if (line.startsWith("$")) {
                 colorClass = "text-purple-400 font-semibold";
-              } else if (line.includes("Pull complete") || line.includes("Downloaded")) {
+              } else if (line.startsWith("Using /")) {
+                colorClass = "text-blue-400";
+              } else if (line.startsWith("  ")) {
+                // Indented details (subdued)
+                colorClass = "text-gray-400";
+              } else if (line.includes("✓") || line.includes("passed") || line.includes("complete") || line.includes("ready")) {
                 colorClass = "text-green-400";
-              } else if (line.includes("Downloading")) {
-                colorClass = "text-yellow-300";
-              } else if (line.includes("Pulling") || line.includes("Unable to find")) {
-                colorClass = "text-yellow-400";
+              } else if (line.includes("Generating") || line.includes("tokens") || line.includes("thought for")) {
+                colorClass = "text-cyan-300";
               } else if (line.includes("INFO")) {
                 colorClass = "text-cyan-400";
-              } else if (line.includes("✓")) {
-                colorClass = "text-green-400 font-bold";
-              } else if (line.includes("%") || line.includes("Total")) {
-                colorClass = "text-blue-400";
               }
 
               return (
@@ -175,7 +178,7 @@ export const AnimatedTerminal = component$(() => {
         {/* Input area - fixed at bottom like Claude Code */}
         <div class="border-t-2 border-[#4a5568] p-4 bg-[#1a202c]">
           <div class="flex items-center gap-3 overflow-hidden">
-            <span class="text-purple-400 select-none font-bold text-lg flex-shrink-0">▶</span>
+            <span class="text-purple-400 select-none font-bold text-lg flex-shrink-0">{'>'}</span>
             <div class="flex-1 font-mono text-sm text-white overflow-hidden">
               <span class="break-all">{currentInput.value}</span>
               {isTyping.value && (

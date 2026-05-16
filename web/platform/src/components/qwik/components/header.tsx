@@ -58,13 +58,13 @@ const DesktopNav = component$<DesktopNavProps>(({ url, scrolled }) => {
         "flex-1 max-w-5xl h-14 hidden md:flex justify-center items-center z-40 transition-all duration-300"
       }
     >
-      <ul class="hidden md:flex w-full backdrop-filter backdrop-blur-md text-black px-6 border-[rgb(220,220,220)] z-60 gap-6 rounded-interactive bg-white/80 border-2 h-12 justify-center items-center">
+      <ul class="hidden md:flex w-full backdrop-filter backdrop-blur-md text-black px-4 border-[rgb(220,220,220)] z-60 gap-2 rounded-interactive bg-white/80 border-2 h-12 justify-center items-center font-mono">
         {links.map((link) => (
           <NavLink
             key={link.name}
             pathName={url.pathName}
             href={link.href}
-            activeClass="font-bold"
+            activeClass="font-semibold"
           >
             {link.name}
           </NavLink>
@@ -130,20 +130,11 @@ const Hamburger = component$<Hamburger>(({ navState }) => {
 const Widgets = component$(() => {
   useStylesScoped$(styles);
   return (
-    <div class="shrink-0 flex flex-row items-center justify-end gap-4 text-[16px]">
-      <div class="z-60 flex flex-row gap-3 items-center">
+    <div class="shrink-0 flex flex-row items-center justify-end gap-2 text-[16px]">
+      <div class="z-60 flex flex-row gap-2 items-center">
         <a
           target="_blank"
-          class="md:hidden w-10 h-10 flex items-center justify-center"
-          href="https://forms.gle/LtaWSixEC6bYi5xF7"
-          rel="noreferrer"
-          aria-label="Nativelink Slack channel"
-        >
-          <Slack />
-        </a>
-        <a
-          target="_blank"
-          class="hidden md:flex w-10 h-10 items-center justify-center hover:opacity-70 transition-opacity duration-200"
+          class="w-10 h-10 flex items-center justify-center hover:opacity-70 transition-opacity duration-200"
           href="https://forms.gle/LtaWSixEC6bYi5xF7"
           rel="noreferrer"
           aria-label="Nativelink Slack channel"
@@ -151,16 +142,7 @@ const Widgets = component$(() => {
           <SlackIcon />
         </a>
         <a
-          class="md:hidden w-10 h-10 flex items-center justify-center"
-          href="https://github.com/tracemachina/nativelink"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Nativelink GitHub repository"
-        >
-          <GitHub />
-        </a>
-        <a
-          class="hidden md:flex w-10 h-10 items-center justify-center hover:opacity-70 transition-opacity duration-200"
+          class="w-10 h-10 flex items-center justify-center hover:opacity-70 transition-opacity duration-200"
           href="https://github.com/tracemachina/nativelink"
           target="_blank"
           rel="noreferrer"
@@ -173,7 +155,7 @@ const Widgets = component$(() => {
         id="button"
         href="/docs/introduction/setup#-quickstart"
         target="_blank"
-        class="hidden md:flex bg-black text-white hover:bg-[rgb(40,40,40)] transition-colors duration-200 px-6 min-h-[48px] rounded-interactive justify-center items-center border-2 border-black whitespace-nowrap"
+        class="hidden md:flex bg-black text-white hover:bg-[rgb(40,40,40)] transition-colors duration-200 px-6 min-h-[48px] rounded-interactive justify-center items-center border-2 border-black whitespace-nowrap font-mono text-sm"
         rel="noreferrer"
       >
         Get Started
