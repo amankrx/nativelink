@@ -17,11 +17,10 @@ export const QuickStart = component$(() => {
           {/* Right: Copy */}
           <div class="text-white space-y-6">
             <h2 class="text-4xl md:text-[58px] font-bold leading-tight">
-              Effortless Implementation
+              Built for AI-Assisted Development
             </h2>
             <p class="text-lg md:text-xl text-gray-300 leading-relaxed">
-              Kickstart NativeLink in 10 minutes with an open-source build cache
-              and remote executor tailored for large code bases.
+              Start in 10 minutes with Docker. Develop with Claude Code skills that guide you through storage changes, config updates, and debugging — the same workflows NativeLink engineers use in production.
             </p>
           </div>
         </div>
