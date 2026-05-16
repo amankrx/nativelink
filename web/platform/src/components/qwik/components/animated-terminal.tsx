@@ -17,12 +17,10 @@ export const AnimatedTerminal = component$(() => {
     isTyping.value = false;
 
     const currentTab = terminalTabs[activeTab.value];
-    console.log("Animation starting, lines:", currentTab.lines.length);
     let timeoutId: number;
     let lineIndex = 0;
 
     const animate = () => {
-      console.log("Animating line", lineIndex);
       if (lineIndex >= currentTab.lines.length) {
         // Restart animation after 3 seconds
         timeoutId = window.setTimeout(() => {
