@@ -34,7 +34,7 @@ export const AnimatedTerminal = component$(() => {
       }
 
       const line = currentTab.lines[lineIndex];
-      const isCommand = line.text.startsWith("curl") || line.text.startsWith("docker");
+      const isCommand = line.text.startsWith("curl") || line.text.startsWith("docker") || line.text.startsWith(">");
 
       if (isCommand) {
         // Show command pasted in bottom input (instant)
