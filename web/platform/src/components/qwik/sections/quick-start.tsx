@@ -16,7 +16,7 @@ export const QuickStart = component$(() => {
 
           {/* Right: Copy */}
           <div class="text-white space-y-6">
-            <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+            <h2 class="text-4xl md:text-[58px] font-bold leading-tight">
               Effortless Implementation
             </h2>
             <p class="text-lg md:text-xl text-gray-300 leading-relaxed">

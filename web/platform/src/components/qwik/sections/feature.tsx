@@ -26,7 +26,7 @@ export const Features = component$(() => {
   return (
     <div class="flex flex-col items-center justify-center gap-16 section-spacing-major section-divider">
       <div class="text-center px-6">
-        <h2 class="text-3xl md:text-5xl font-bold text-black mb-4">
+        <h2 class="text-3xl md:text-[58px] font-bold text-black mb-4">
           What You Get
         </h2>
       </div>

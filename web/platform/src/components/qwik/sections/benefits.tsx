@@ -27,7 +27,7 @@ export const Benefits = component$(() => {
   return (
     <div class="flex w-full flex-col items-center justify-center gap-16 section-spacing-major section-divider">
       <div class="text-center px-6">
-        <h2 class="text-3xl md:text-5xl font-bold text-black mb-4">
+        <h2 class="text-3xl md:text-[58px] font-bold text-black mb-4">
           The NativeLink Difference
         </h2>
       </div>

@@ -4,7 +4,7 @@ export const CTA = component$(() => {
   return (
     <div class="section-spacing-major pb-24">
       <div class="max-w-4xl mx-auto px-6 text-center">
-        <h2 class="text-4xl md:text-6xl font-bold text-black mb-6">
+        <h2 class="text-4xl md:text-[58px] font-bold text-black mb-6">
           Try it in 10 minutes.
         </h2>
 

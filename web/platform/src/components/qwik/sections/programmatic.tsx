@@ -9,7 +9,7 @@ export const Programmatic = component$(() => {
             Programmatic build infrastructure for the agentic era
           </p>
 
-          <h2 class="text-3xl md:text-5xl font-bold text-black">
+          <h2 class="text-3xl md:text-[58px] font-bold text-black">
             When agents commit code, the build system is the last honest
             checkpoint.
           </h2>
