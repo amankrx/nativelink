@@ -334,3 +334,23 @@ header a[aria-label] {
    animation-delay: 0.4s;
    opacity: 0;
 }
+
+/* Respect user motion preferences (WCAG 2.1 Level AA) */
+@media (prefers-reduced-motion: reduce) {
+   *,
+   *::before,
+   *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+   }
+
+   /* Restore opacity immediately for delayed animations */
+   .animation-delay-100,
+   .animation-delay-200,
+   .animation-delay-300,
+   .animation-delay-400 {
+      opacity: 1;
+   }
+}
