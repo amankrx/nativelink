@@ -30,15 +30,48 @@ export const Features = component$(() => {
           What You Get
         </h2>
       </div>
-      <div class="flex flex-col items-center gap-8 md:flex-row md:items-stretch md:justify-center md:gap-6 max-w-6xl mx-auto px-6">
-        {products.map((product, _index) => (
-          <BorderlessCard
-            key={product.headline}
-            icon={product.icon}
-            headline={product.headline}
-            text={product.text}
-          />
-        ))}
+
+      {/* Asymmetric 2-up layout - eliminates AI template pattern */}
+      <div class="max-w-6xl mx-auto px-6 w-full">
+        <div class="grid md:grid-cols-2 gap-12">
+          {/* Left: Primary feature with larger visual weight */}
+          <div class="flex flex-col gap-8">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 mt-1">{products[0].icon}</div>
+              <div>
+                <h3 class="text-2xl font-bold text-black mb-3 leading-tight">
+                  {products[0].headline}
+                </h3>
+                <p class="text-lg text-[rgb(60,60,60)] leading-relaxed">
+                  {products[0].text}
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 mt-1">{products[2].icon}</div>
+              <div>
+                <h3 class="text-2xl font-bold text-black mb-3 leading-tight">
+                  {products[2].headline}
+                </h3>
+                <p class="text-lg text-[rgb(60,60,60)] leading-relaxed">
+                  {products[2].text}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Feature with emphasis */}
+          <div class="bg-[rgb(248,247,244)] border-2 border-[rgb(220,220,220)] rounded-[4px] p-8 flex flex-col justify-center">
+            <div class="mb-6">{products[1].icon}</div>
+            <h3 class="text-3xl font-bold text-black mb-4 leading-tight">
+              {products[1].headline}
+            </h3>
+            <p class="text-xl text-[rgb(60,60,60)] leading-relaxed">
+              {products[1].text}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
