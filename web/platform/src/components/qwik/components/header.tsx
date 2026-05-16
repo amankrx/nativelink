@@ -54,7 +54,9 @@ interface DesktopNavProps {
 const DesktopNav = component$<DesktopNavProps>(({ url, scrolled }) => {
   return (
     <nav
-      class={`flex-1 max-w-5xl h-14 hidden md:flex justify-center items-center z-40 transition-all duration-300`}
+      class={
+        "flex-1 max-w-5xl h-14 hidden md:flex justify-center items-center z-40 transition-all duration-300"
+      }
     >
       <ul class="hidden md:flex w-full backdrop-filter backdrop-blur-md text-black px-6 border-[rgb(220,220,220)] z-60 gap-6 rounded-interactive bg-white/80 border-2 h-12 justify-center items-center">
         {links.map((link) => (

@@ -2,7 +2,8 @@
 
 /* Pi.website inspired global styles */
 :root {
-   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      "Liberation Mono", "Courier New", monospace;
 }
 
 body {
@@ -88,7 +89,7 @@ nav a,
    }
 
    .section-divider::after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: 0;
       left: 10%;

@@ -50,7 +50,6 @@ export const CommunityPage = component$(() => {
   return (
     <main class="pt-36 flex gap-10 justify-center flex-col items-center px-8 w-screen text-black text-4xl">
       <div class="relative flex flex-col w-full md:w-[1000px] gap-10 items-start justify-center h-96">
-
         <LinearGradient
           text={"Join our community"}
           class="text-4xl md:text-5xl text-left z-10"

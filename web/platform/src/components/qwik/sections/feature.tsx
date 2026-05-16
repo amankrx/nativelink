@@ -1,14 +1,8 @@
 import { component$ } from "@builder.io/qwik";
 
-import {
-  CAS,
-  FreeCloud,
-  RBE,
-  Security,
-} from "../../media/icons/productIcons.tsx";
+import { CAS, RBE, Security } from "../../media/icons/productIcons.tsx";
 
 import { BorderlessCard } from "../components/cards.tsx";
-import { Label } from "../components/text.tsx";
 
 const products = [
   {

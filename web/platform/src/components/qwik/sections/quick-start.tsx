@@ -20,8 +20,8 @@ export const QuickStart = component$(() => {
               Effortless Implementation
             </h2>
             <p class="text-lg md:text-xl text-gray-300 leading-relaxed">
-              Kickstart NativeLink in 10 minutes with an open-source build
-              cache and remote executor tailored for large code bases.
+              Kickstart NativeLink in 10 minutes with an open-source build cache
+              and remote executor tailored for large code bases.
             </p>
           </div>
         </div>

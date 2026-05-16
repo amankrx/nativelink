@@ -23,7 +23,9 @@ export const BorderlessCard = component$<BorderlessCard>(
         <h3 class="text-xl font-bold text-black mb-4 leading-tight">
           {headline}
         </h3>
-        <p class="text-base text-[rgb(60,60,60)] leading-relaxed flex-grow">{text}</p>
+        <p class="text-base text-[rgb(60,60,60)] leading-relaxed flex-grow">
+          {text}
+        </p>
       </div>
     );
   },
@@ -58,10 +60,7 @@ export const VideoCard = component$<VideoCard>(
 const pricing = [
   {
     title: "Open Source",
-    items: [
-      "Free!",
-      "Community Support",
-    ],
+    items: ["Free!", "Community Support"],
     cta: {
       title: "Get Started",
       link: "/docs/introduction/setup",

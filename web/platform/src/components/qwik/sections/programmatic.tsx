@@ -10,17 +10,20 @@ export const Programmatic = component$(() => {
           </p>
 
           <h2 class="text-3xl md:text-5xl font-bold text-black">
-            When agents commit code, the build system is the last honest checkpoint.
+            When agents commit code, the build system is the last honest
+            checkpoint.
           </h2>
 
           <div class="text-lg md:text-xl text-[rgb(60,60,60)] leading-relaxed max-w-4xl mx-auto">
             <p>
-              AI agents commit faster than humans can review and pull dependencies humans never would.
-              NativeLink turns every build into structured, observable data — every artifact hashed,
-              every dependency traceable, every action programmable.
+              AI agents commit faster than humans can review and pull
+              dependencies humans never would. NativeLink turns every build into
+              structured, observable data — every artifact hashed, every
+              dependency traceable, every action programmable.
             </p>
             <p class="mt-4">
-              The substrate your security, compliance, and observability tools have been waiting for. At agent speed.
+              The substrate your security, compliance, and observability tools
+              have been waiting for. At agent speed.
             </p>
           </div>
         </div>

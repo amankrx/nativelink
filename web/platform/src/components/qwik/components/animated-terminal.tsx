@@ -1,227 +1,11 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
-
-interface TerminalLine {
-  text: string;
-  delay?: number; // Delay before starting this line (ms)
-  instant?: boolean; // Appears instantly (e.g., pasted URL)
-}
-
-interface TerminalTab {
-  name: string;
-  lines: TerminalLine[];
-}
-
-const terminalTabs: TerminalTab[] = [
-  {
-    name: "Linux x86_64 / Mac OS X",
-    lines: [
-      {
-        text: "curl -O \\",
-        delay: 0,
-      },
-      {
-        text: "https://raw.githubusercontent.com/TraceMachina/nativelink/v1.0.0/nativelink-config/examples/basic_cas.json5",
-        delay: 100,
-        instant: true,
-      },
-      {
-        text: "  % Total    % Received  Time",
-        delay: 200,
-        instant: true,
-      },
-      {
-        text: "100  2841  100  2841    0:00:01",
-        delay: 50,
-        instant: true,
-      },
-      {
-        text: "",
-        delay: 300,
-      },
-      {
-        text: "docker run \\",
-        delay: 200,
-      },
-      {
-        text: "-v $(pwd)/basic_cas.json:/config \\",
-        delay: 50,
-      },
-      {
-        text: "-p 50051:50051 \\",
-        delay: 50,
-      },
-      {
-        text: "ghcr.io/tracemachina/nativelink:v1.0.0 \\",
-        delay: 50,
-      },
-      {
-        text: "config",
-        delay: 50,
-      },
-      {
-        text: "",
-        delay: 400,
-      },
-      {
-        text: "Unable to find image locally",
-        delay: 200,
-        instant: true,
-      },
-      {
-        text: "v1.0.0: Pulling from tracemachina/nativelink",
-        delay: 100,
-        instant: true,
-      },
-      {
-        text: "a1d0c7532777: Pull complete",
-        delay: 300,
-        instant: true,
-      },
-      {
-        text: "7f9a694b6f8c: Pull complete",
-        delay: 300,
-        instant: true,
-      },
-      {
-        text: "Status: Downloaded newer image",
-        delay: 200,
-        instant: true,
-      },
-      {
-        text: "",
-        delay: 400,
-      },
-      {
-        text: "INFO nativelink::config: Loading config from /config",
-        delay: 200,
-        instant: true,
-      },
-      {
-        text: "INFO nativelink::cas_server: CAS server listening on 0.0.0.0:50051",
-        delay: 150,
-        instant: true,
-      },
-      {
-        text: "INFO nativelink::scheduler: Scheduler initialized",
-        delay: 150,
-        instant: true,
-      },
-      {
-        text: "✓ NativeLink ready to serve builds",
-        delay: 300,
-        instant: true,
-      },
-    ],
-  },
-  {
-    name: "Windows x86_64",
-    lines: [
-      {
-        text: "curl.exe -O \\",
-        delay: 0,
-      },
-      {
-        text: "https://raw.githubusercontent.com/TraceMachina/nativelink/v1.0.0/nativelink-config/examples/basic_cas.json5",
-        delay: 100,
-        instant: true,
-      },
-      {
-        text: "  % Total    % Received  Time",
-        delay: 200,
-        instant: true,
-      },
-      {
-        text: "100  2841  100  2841    0:00:01",
-        delay: 50,
-        instant: true,
-      },
-      {
-        text: "",
-        delay: 300,
-      },
-      {
-        text: "docker run \\",
-        delay: 200,
-      },
-      {
-        text: "-v $(pwd)/basic_cas.json:/config \\",
-        delay: 50,
-      },
-      {
-        text: "-p 50051:50051 \\",
-        delay: 50,
-      },
-      {
-        text: "ghcr.io/tracemachina/nativelink:v1.0.0 \\",
-        delay: 50,
-      },
-      {
-        text: "config",
-        delay: 50,
-      },
-      {
-        text: "",
-        delay: 400,
-      },
-      {
-        text: "Unable to find image locally",
-        delay: 200,
-        instant: true,
-      },
-      {
-        text: "v1.0.0: Pulling from tracemachina/nativelink",
-        delay: 100,
-        instant: true,
-      },
-      {
-        text: "a1d0c7532777: Pull complete",
-        delay: 300,
-        instant: true,
-      },
-      {
-        text: "7f9a694b6f8c: Pull complete",
-        delay: 300,
-        instant: true,
-      },
-      {
-        text: "Status: Downloaded newer image",
-        delay: 200,
-        instant: true,
-      },
-      {
-        text: "",
-        delay: 400,
-      },
-      {
-        text: "INFO nativelink::config: Loading config from /config",
-        delay: 200,
-        instant: true,
-      },
-      {
-        text: "INFO nativelink::cas_server: CAS server listening on 0.0.0.0:50051",
-        delay: 150,
-        instant: true,
-      },
-      {
-        text: "INFO nativelink::scheduler: Scheduler initialized",
-        delay: 150,
-        instant: true,
-      },
-      {
-        text: "✓ NativeLink ready to serve builds",
-        delay: 300,
-        instant: true,
-      },
-    ],
-  },
-];
+import { terminalTabs } from "./terminal-data";
 
 export const AnimatedTerminal = component$(() => {
   const activeTab = useSignal(0);
   const displayedLines = useSignal<string[]>([]);
-  const isAnimating = useSignal(false);
-  const currentLineIndex = useSignal(0);
-  const currentCharIndex = useSignal(0);
+  const currentInput = useSignal("");
+  const isTyping = useSignal(false);
   const terminalRef = useSignal<HTMLDivElement>();
 
   useVisibleTask$(({ track, cleanup }) => {
@@ -229,76 +13,85 @@ export const AnimatedTerminal = component$(() => {
 
     // Reset animation when tab changes
     displayedLines.value = [];
-    currentLineIndex.value = 0;
-    currentCharIndex.value = 0;
-    isAnimating.value = true;
+    currentInput.value = "";
+    isTyping.value = false;
 
     const currentTab = terminalTabs[activeTab.value];
+    console.log("Animation starting, lines:", currentTab.lines.length);
     let timeoutId: number;
-    let hasDelayed = false;
+    let lineIndex = 0;
 
-    const animateLine = () => {
-      if (currentLineIndex.value >= currentTab.lines.length) {
-        isAnimating.value = false;
+    const animate = () => {
+      console.log("Animating line", lineIndex);
+      if (lineIndex >= currentTab.lines.length) {
         // Restart animation after 3 seconds
         timeoutId = window.setTimeout(() => {
           displayedLines.value = [];
-          currentLineIndex.value = 0;
-          currentCharIndex.value = 0;
-          hasDelayed = false;
-          isAnimating.value = true;
-          animateLine();
+          currentInput.value = "";
+          isTyping.value = false;
+          lineIndex = 0;
+          animate();
         }, 3000);
         return;
       }
 
-      const line = currentTab.lines[currentLineIndex.value];
-      const targetText = line.text;
+      const line = currentTab.lines[lineIndex];
+      const isCommand = line.text.startsWith("curl") || line.text.startsWith("docker");
 
-      // Apply delay only once per line
-      if (currentCharIndex.value === 0 && line.delay && !hasDelayed) {
-        hasDelayed = true;
+      if (isCommand) {
+        // Show command pasted in bottom input (instant)
+        isTyping.value = true;
+        currentInput.value = line.text;
+
+        // After brief pause, move to output
         timeoutId = window.setTimeout(() => {
-          animateLine();
-        }, line.delay);
-        return;
-      }
+          displayedLines.value = [...displayedLines.value, "▶ " + line.text];
+          currentInput.value = "";
+          isTyping.value = false;
+          lineIndex++;
 
-      // Check if this line should appear instantly (e.g., pasted)
-      if (line.instant && currentCharIndex.value === 0) {
-        const newLines = [...displayedLines.value];
-        newLines[currentLineIndex.value] = targetText;
-        displayedLines.value = newLines;
-        currentCharIndex.value = targetText.length + 1;
-        timeoutId = window.setTimeout(animateLine, 50);
-        return;
-      }
+          // Auto-scroll
+          if (terminalRef.value) {
+            terminalRef.value.scrollTop = terminalRef.value.scrollHeight;
+          }
 
-      if (currentCharIndex.value <= targetText.length) {
-        const newLines = [...displayedLines.value];
-        newLines[currentLineIndex.value] = targetText.slice(
-          0,
-          currentCharIndex.value,
-        );
-        displayedLines.value = newLines;
+          timeoutId = window.setTimeout(animate, line.delay || 300);
+        }, 800);
+      } else {
+        // Output line - appears instantly
+        const isDownloading = line.text.includes("Downloading");
 
-        // Auto-scroll to bottom
+        if (isDownloading) {
+          // Extract layer ID (e.g., "a1d0c7532777")
+          const layerId = line.text.split(":")[0];
+          const lastLine = displayedLines.value[displayedLines.value.length - 1];
+
+          // If last line was this same layer downloading, replace it (animate in place)
+          if (lastLine && lastLine.includes(layerId) && lastLine.includes("Downloading")) {
+            const newLines = [...displayedLines.value];
+            newLines[newLines.length - 1] = line.text;
+            displayedLines.value = newLines;
+          } else {
+            // First download line for this layer
+            displayedLines.value = [...displayedLines.value, line.text];
+          }
+        } else {
+          // Regular output line
+          displayedLines.value = [...displayedLines.value, line.text];
+        }
+
+        lineIndex++;
+
+        // Auto-scroll
         if (terminalRef.value) {
           terminalRef.value.scrollTop = terminalRef.value.scrollHeight;
         }
 
-        currentCharIndex.value++;
-        timeoutId = window.setTimeout(animateLine, 30); // Typing speed
-      } else {
-        // Move to next line
-        currentLineIndex.value++;
-        currentCharIndex.value = 0;
-        hasDelayed = false; // Reset for next line
-        timeoutId = window.setTimeout(animateLine, 50);
+        timeoutId = window.setTimeout(animate, line.delay || 100);
       }
     };
 
-    animateLine();
+    animate();
 
     cleanup(() => {
       if (timeoutId) {
@@ -329,22 +122,54 @@ export const AnimatedTerminal = component$(() => {
         ))}
       </div>
 
-      {/* Terminal window */}
-      <div
-        ref={terminalRef}
-        class="bg-[#2d3748] rounded-b rounded-tr p-8 font-mono text-sm text-gray-100 h-[400px] relative overflow-y-auto border-2 border-[#4a5568]"
-      >
-        <div class="space-y-1">
-          {displayedLines.value.map((line, index) => (
-            <div key={index} class="whitespace-pre-wrap break-all">
-              <span class="text-gray-500 select-none">$ </span>
-              <span>{line}</span>
-              {index === displayedLines.value.length - 1 &&
-                isAnimating.value && (
-                  <span class="inline-block w-2 h-4 bg-white ml-1 animate-pulse" />
-                )}
+      {/* Terminal window - agentic bottom-input layout */}
+      <div class="bg-[#2d3748] rounded-b rounded-tr border-2 border-[#4a5568] h-[500px] flex flex-col overflow-hidden">
+        {/* Output area - scrolls */}
+        <div
+          ref={terminalRef}
+          class="flex-1 overflow-y-auto overflow-x-hidden p-6 font-mono text-sm"
+        >
+          <div class="space-y-1">
+            {displayedLines.value.map((line, index) => {
+              // Color coding based on line content
+              let colorClass = "text-gray-300";
+
+              if (line.startsWith("▶")) {
+                colorClass = "text-purple-400 font-semibold";
+              } else if (line.includes("Pull complete") || line.includes("Downloaded")) {
+                colorClass = "text-green-400";
+              } else if (line.includes("Downloading")) {
+                colorClass = "text-yellow-300";
+              } else if (line.includes("Pulling") || line.includes("Unable to find")) {
+                colorClass = "text-yellow-400";
+              } else if (line.includes("INFO")) {
+                colorClass = "text-cyan-400";
+              } else if (line.includes("✓")) {
+                colorClass = "text-green-400 font-bold";
+              } else if (line.includes("%") || line.includes("Total")) {
+                colorClass = "text-blue-400";
+              }
+
+              return (
+                <div key={`line-${index}`} class={`break-all overflow-wrap-anywhere ${colorClass}`}>
+                  {line}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Input area - fixed at bottom like Claude Code */}
+        <div class="border-t-2 border-[#4a5568] p-4 bg-[#1a202c]">
+          <div class="flex items-center gap-3 overflow-hidden">
+            <span class="text-purple-400 select-none font-bold text-lg flex-shrink-0">▶</span>
+            <div class="flex-1 font-mono text-sm text-white overflow-hidden">
+              <span class="break-all">{currentInput.value}</span>
+              {isTyping.value && (
+                <span class="inline-block w-2 h-4 bg-purple-400 ml-1 animate-pulse flex-shrink-0" />
+              )}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </div>

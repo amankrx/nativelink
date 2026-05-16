@@ -147,9 +147,7 @@ const FAQBox = ({ title, content }: FAQBoxProps) => {
         </div>
         <p
           className={`text-muted transition-all duration-400 overflow-hidden ${
-            isOpen
-              ? "max-h-96 opacity-100 py-4"
-              : "max-h-0 opacity-0"
+            isOpen ? "max-h-96 opacity-100 py-4" : "max-h-0 opacity-0"
           }`}
         >
           {content}

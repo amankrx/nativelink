@@ -2,8 +2,6 @@ import { component$, useVisibleTask$ } from "@builder.io/qwik";
 
 import { Label, LinearGradient } from "../components/text.tsx";
 
-import { BackgroundVideo } from "../components/video.tsx";
-
 const _cards = [
   {
     title: "Media Kit",
@@ -30,7 +28,6 @@ const _cards = [
 const CompanyHero = component$(() => {
   return (
     <div class="relative w-full flex flex-col md:flex-row  md:gap-14 justify-center items-center ">
-
       <div class="px-8 z-10 gap-10 flex flex-col md:w-[650px] ">
         <div class="pr-8">
           <LinearGradient

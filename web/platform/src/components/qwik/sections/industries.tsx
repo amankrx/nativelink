@@ -62,9 +62,7 @@ const IndustryItem = component$<{ industry: Industry; index: number }>(
       >
         <div class="flex flex-col justify-center items-start border-b border-[rgb(220,220,220)] w-full">
           <div class="w-full flex flex-row justify-between py-6">
-            <h3 class="text-xl font-bold text-black pr-8">
-              {industry.title}
-            </h3>
+            <h3 class="text-xl font-bold text-black pr-8">{industry.title}</h3>
             <svg
               width="28px"
               height="30px"
@@ -95,7 +93,7 @@ const IndustryItem = component$<{ industry: Industry; index: number }>(
         </div>
       </button>
     );
-  }
+  },
 );
 
 export const Industries = component$(() => {
@@ -107,7 +105,8 @@ export const Industries = component$(() => {
             Built for the codebases that shape the physical world
           </p>
           <h2 class="text-3xl md:text-5xl font-bold text-black mb-6">
-            From silicon to simulation, NativeLink runs the builds that ship — and the ones agents are writing next.
+            From silicon to simulation, NativeLink runs the builds that ship —
+            and the ones agents are writing next.
           </h2>
         </div>
 

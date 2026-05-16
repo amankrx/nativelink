@@ -13,9 +13,7 @@ interface Label {
 export const LinearGradient = component$<LinearGradient>(
   ({ text, class: customClass = "" }) => {
     return (
-      <div
-        class={`text-black leading-none tracking-normal ${customClass}`}
-      >
+      <div class={`text-black leading-none tracking-normal ${customClass}`}>
         {text}
       </div>
     );
@@ -28,9 +26,7 @@ export const Label = component$<Label>(({ text, class: customClass = "" }) => {
       class={`flex items-center justify-center rounded-3xl border border-black/10 bg-white/50 ${customClass}`}
     >
       <div
-        class={
-          "p-2 text-sm text-black uppercase tracking-wider font-medium"
-        }
+        class={"p-2 text-sm text-black uppercase tracking-wider font-medium"}
       >
         {text}
       </div>

@@ -1,7 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 
 import { VideoCard } from "../components/cards.tsx";
-import { Label } from "../components/text.tsx";
 
 const benefits = [
   {

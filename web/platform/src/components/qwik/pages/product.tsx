@@ -13,7 +13,9 @@ const ProductHero = component$(() => {
               One platform. Every build. Every machine.
             </h1>
             <p class="text-lg md:text-xl text-[rgb(60,60,60)] max-w-[800px] leading-relaxed">
-              NativeLink unifies remote caching, remote execution, and observability into a single Rust-native platform — built to keep up with codebases that grow faster than you can provision them.
+              NativeLink unifies remote caching, remote execution, and
+              observability into a single Rust-native platform — built to keep
+              up with codebases that grow faster than you can provision them.
             </p>
           </div>
         </div>
@@ -50,10 +52,14 @@ const RemoteCache = component$(() => {
           </div>
           <div class="text-lg text-[rgb(60,60,60)] leading-relaxed">
             <p>
-              Content-addressable storage deduplicates every artifact your team produces. If a teammate, your CI, or an agent has already built it, you get it back in milliseconds. Drops into Bazel, Buck2, Reclient, Pants, Goma — and CMake via recc.
+              Content-addressable storage deduplicates every artifact your team
+              produces. If a teammate, your CI, or an agent has already built
+              it, you get it back in milliseconds. Drops into Bazel, Buck2,
+              Reclient, Pants, Goma — and CMake via recc.
             </p>
             <p class="mt-4 text-sm italic">
-              Proof point: Over a billion build requests served per month, in production.
+              Proof point: Over a billion build requests served per month, in
+              production.
             </p>
           </div>
         </div>
@@ -75,7 +81,10 @@ const RemoteExecution = component$(() => {
           </div>
           <div class="text-lg text-[rgb(60,60,60)] leading-relaxed">
             <p>
-              Offload compilation and tests to a worker fleet that scales horizontally — on AWS, GCP, or bare metal. Hermetic by design, deterministic by default. Specialized hardware (GPUs, ARM, Apple Silicon) supported natively.
+              Offload compilation and tests to a worker fleet that scales
+              horizontally — on AWS, GCP, or bare metal. Hermetic by design,
+              deterministic by default. Specialized hardware (GPUs, ARM, Apple
+              Silicon) supported natively.
             </p>
           </div>
         </div>
@@ -97,7 +106,10 @@ const CloudAndSelfHost = component$(() => {
           </div>
           <div class="text-lg text-[rgb(60,60,60)] leading-relaxed">
             <p>
-              Start free on NativeLink Cloud in ten minutes. Move to dedicated infrastructure when your scale demands it. Or self-host the open-source release with one Docker command. Same code path. Same performance.
+              Start free on NativeLink Cloud in ten minutes. Move to dedicated
+              infrastructure when your scale demands it. Or self-host the
+              open-source release with one Docker command. Same code path. Same
+              performance.
             </p>
           </div>
         </div>
@@ -119,7 +131,10 @@ const BuiltOnRust = component$(() => {
           </div>
           <div class="text-lg text-[rgb(60,60,60)] leading-relaxed">
             <p>
-              No garbage collector. No race conditions at scale. No mystery latency spikes. Memory safety without the runtime tax — which is why NativeLink can serve a billion requests a month on infrastructure that would buckle other systems.
+              No garbage collector. No race conditions at scale. No mystery
+              latency spikes. Memory safety without the runtime tax — which is
+              why NativeLink can serve a billion requests a month on
+              infrastructure that would buckle other systems.
             </p>
           </div>
         </div>
@@ -141,10 +156,18 @@ const SecurityAndProvenance = component$(() => {
           </div>
           <div class="text-lg text-[rgb(60,60,60)] leading-relaxed">
             <p>
-              SSO/SAML, signed worker inputs and outputs, packet integrity, end-to-end TLS. Build artifacts are content-addressed and tamper-evident by design. Hermetic execution means no surprise dependencies pulled in mid-build — every input explicit, every output verifiable.
+              SSO/SAML, signed worker inputs and outputs, packet integrity,
+              end-to-end TLS. Build artifacts are content-addressed and
+              tamper-evident by design. Hermetic execution means no surprise
+              dependencies pulled in mid-build — every input explicit, every
+              output verifiable.
             </p>
             <p class="mt-4">
-              And because builds are programmable, your security and observability tools can plug straight into the data: dependency graphs, execution metadata, artifact provenance — queryable, exportable, auditable. Critical when humans are committing code. Existential when agents are.
+              And because builds are programmable, your security and
+              observability tools can plug straight into the data: dependency
+              graphs, execution metadata, artifact provenance — queryable,
+              exportable, auditable. Critical when humans are committing code.
+              Existential when agents are.
             </p>
           </div>
         </div>
@@ -157,7 +180,8 @@ const Integrations = component$(() => {
   const integrations = [
     {
       title: "AI Coding Platforms",
-      items: "Claude Code, GitHub Copilot Workspace, Devin, Cursor, Windsurf, and more.",
+      items:
+        "Claude Code, GitHub Copilot Workspace, Devin, Cursor, Windsurf, and more.",
     },
     {
       title: "Languages",
@@ -216,7 +240,11 @@ const CaseStudy = component$(() => {
           </h2>
           <div class="text-lg text-[rgb(60,60,60)] leading-relaxed">
             <p>
-              LLVM contributors are using NativeLink with CMake and recc to distribute builds of clang and the LLVM toolchain — cutting full-project compile time from 17 minutes to 4. No build-system migration. No proprietary client. Just your existing CMake setup, pointed at NativeLink.
+              LLVM contributors are using NativeLink with CMake and recc to
+              distribute builds of clang and the LLVM toolchain — cutting
+              full-project compile time from 17 minutes to 4. No build-system
+              migration. No proprietary client. Just your existing CMake setup,
+              pointed at NativeLink.
             </p>
           </div>
           <div class="mt-4">

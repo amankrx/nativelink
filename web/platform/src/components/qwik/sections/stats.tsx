@@ -5,7 +5,8 @@ export const Stats = component$(() => {
     {
       value: "4x",
       label: "faster builds",
-      description: "Demonstrated on LLVM, one of the world's largest C++ codebases.",
+      description:
+        "Demonstrated on LLVM, one of the world's largest C++ codebases.",
     },
     {
       value: "1B+",

@@ -1,6 +1,4 @@
-import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
-import { Background } from "../../media/icons/icons.tsx";
-import { BackgroundVideo } from "../components/video.tsx";
+import { component$ } from "@builder.io/qwik";
 
 const _MockUp =
   "https://nativelink-cdn.s3.us-east-1.amazonaws.com/nativelink_dashboard.webp";
@@ -22,7 +20,10 @@ export const Hero = component$(() => {
               When agents write your code, your build system is the bottleneck.
             </h1>
             <p class="text-lg md:text-xl text-[rgb(60,60,60)] max-w-[800px] leading-relaxed animate-fade-in-up animation-delay-200">
-              NativeLink is the parallel compute platform that keeps builds fast while your codebase — and your agents — multiply. Rust-powered. Open source. Trusted in production for over a billion requests a month.
+              NativeLink is the parallel compute platform that keeps builds fast
+              while your codebase — and your agents — multiply. Rust-powered.
+              Open source. Trusted in production for over a billion requests a
+              month.
             </p>
           </div>
         </div>

@@ -1,5 +1,4 @@
 import { $, component$, useSignal } from "@builder.io/qwik";
-import { BackgroundVideo } from "./video.tsx";
 
 const Logo = "/logo-light.svg";
 
@@ -134,7 +133,11 @@ export const Footer = component$(() => {
               class="w-full flex flex-col justiy-center gap-3 items-start font-normal"
             >
               {_links.map((link, _index) => (
-                <a key={link.name} href={link.link} class="hover:opacity-60 transition-opacity">
+                <a
+                  key={link.name}
+                  href={link.link}
+                  class="hover:opacity-60 transition-opacity"
+                >
                   {link.name}
                 </a>
               ))}
@@ -145,7 +148,11 @@ export const Footer = component$(() => {
               class="w-full flex flex-col justiy-center gap-3 items-start font-normal"
             >
               {law.map((link, _index) => (
-                <a key={link.name} href={link.link} class="hover:opacity-60 transition-opacity">
+                <a
+                  key={link.name}
+                  href={link.link}
+                  class="hover:opacity-60 transition-opacity"
+                >
                   {link.name}
                 </a>
               ))}
