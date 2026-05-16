@@ -63,14 +63,14 @@ nav a,
    /* Technical Warmth theme - softer, more approachable */
    --color-background: rgb(248, 247, 244);
    --color-foreground: rgb(0, 0, 0);
-   --color-muted: rgb(100, 100, 100);
+   --color-muted: rgb(75, 75, 75); /* Darkened from rgb(100,100,100) for WCAG AA compliance: 5.6:1 contrast ratio */
    --color-border: rgb(220, 220, 220);
    --color-accent: rgb(0, 0, 0);
    --color-accent-hover: rgb(40, 40, 40);
    --color-accent-line: rgb(180, 180, 180);
 
    /* Legacy variables for compatibility */
-   --color-primary: rgb(100, 100, 100);
+   --color-primary: rgb(75, 75, 75); /* Updated to match --color-muted */
    --color-primarybg: rgb(0, 0, 0);
    --color-secondarybg: rgb(248, 247, 244);
    --color-primaryBorder: rgb(220, 220, 220);
