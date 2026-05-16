@@ -58,8 +58,23 @@ export const AnimatedTerminal = component$(() => {
       } else {
         // Output line - appears instantly
         const isDownloading = line.text.includes("Downloading");
+        const isStatus = line.text.startsWith("STATUS:");
 
-        if (isDownloading) {
+        if (isStatus) {
+          // Status lines replace each other (animated token counter)
+          const statusText = line.text.substring(7); // Remove "STATUS:" prefix
+          const lastLine = displayedLines.value[displayedLines.value.length - 1];
+
+          if (lastLine && lastLine.startsWith("Generating..")) {
+            // Replace previous status line
+            const newLines = [...displayedLines.value];
+            newLines[newLines.length - 1] = statusText;
+            displayedLines.value = newLines;
+          } else {
+            // First status line
+            displayedLines.value = [...displayedLines.value, statusText];
+          }
+        } else if (isDownloading) {
           // Extract layer ID (e.g., "a1d0c7532777")
           const layerId = line.text.split(":")[0];
           const lastLine = displayedLines.value[displayedLines.value.length - 1];
