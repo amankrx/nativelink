@@ -337,13 +337,12 @@ header a[aria-label] {
 
 /* Respect user motion preferences (WCAG 2.1 Level AA) */
 @media (prefers-reduced-motion: reduce) {
-   *,
-   *::before,
-   *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
+   /* Only disable decorative entrance animations, not functional demos */
+   .animate-fade-in-up,
+   .animate-fade-in {
+      animation: none;
+      opacity: 1;
+      transform: none;
    }
 
    /* Restore opacity immediately for delayed animations */
@@ -352,5 +351,16 @@ header a[aria-label] {
    .animation-delay-300,
    .animation-delay-400 {
       opacity: 1;
+      animation-delay: 0s;
    }
+
+   /* Reduce transition speeds for interactive elements */
+   button,
+   a,
+   .transition,
+   [class*="transition-"] {
+      transition-duration: 0.01ms !important;
+   }
+
+   scroll-behavior: auto;
 }
