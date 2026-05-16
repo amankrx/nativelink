@@ -138,6 +138,7 @@ const Widgets = component$(() => {
           href="https://forms.gle/LtaWSixEC6bYi5xF7"
           rel="noreferrer"
           aria-label="Nativelink Slack channel"
+          title="Join our Slack"
         >
           <SlackIcon />
         </a>
@@ -147,6 +148,7 @@ const Widgets = component$(() => {
           target="_blank"
           rel="noreferrer"
           aria-label="Nativelink GitHub repository"
+          title="Clone the Repo"
         >
           <GitHubIcon />
         </a>
