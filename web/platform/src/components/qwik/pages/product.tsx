@@ -1,5 +1,11 @@
 import { component$ } from "@builder.io/qwik";
 
+const videoMockUp =
+  "https://nativelink-cdn.s3.us-east-1.amazonaws.com/Walkthrough+of+Nativelink+Cloud.mp4";
+
+const _MockUp =
+  "https://nativelink-cdn.s3.us-east-1.amazonaws.com/nativelink_dashboard.webp";
+
 const ProductHero = component$(() => {
   return (
     <div class="relative flex w-full flex-col items-center justify-evenly gap-5 pb-10 text-black overflow-hidden">
@@ -33,6 +39,21 @@ const ProductHero = component$(() => {
           >
             Talk to us
           </a>
+        </div>
+
+        <div class="w-full flex justify-center items-center">
+          <div class="w-9/11 relative">
+            <video
+              src={videoMockUp}
+              class="w-full h-full object-contain self-center shadow-[0px_0px_50px_0px_rgba(96,80,230,0.3)] border-2 border-[rgb(220,220,220)] rounded-interactive"
+              autoplay={false}
+              loop={true}
+              muted={true}
+              poster={_MockUp}
+              controls={true}
+              preload="metadata"
+            />
+          </div>
         </div>
       </div>
     </div>

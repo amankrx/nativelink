@@ -48,16 +48,15 @@ export const Hero = component$(() => {
 
         <div class="w-full flex justify-center items-center animate-fade-in animation-delay-400">
           <div class="w-9/11 relative">
-            <video
-              src={videoMockUp}
-              class="w-full h-full object-contain self-center shadow-[0px_0px_50px_0px_rgba(96,80,230,0.3)] border-2 border-[rgb(220,220,220)] rounded-interactive"
-              autoplay={false}
-              loop={true}
-              muted={true}
-              poster={_MockUp}
-              controls={true}
-              preload="metadata"
-            />
+            <div class="relative w-full" style="padding-bottom: 56.25%;">
+              <iframe
+                class="absolute top-0 left-0 w-full h-full rounded-interactive border-2 border-[rgb(220,220,220)] shadow-[0px_0px_50px_0px_rgba(96,80,230,0.3)]"
+                src="https://www.youtube.com/embed/f7kR1woFqcU"
+                title="NativeLink Demo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              />
+            </div>
           </div>
         </div>
       </div>
