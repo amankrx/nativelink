@@ -360,7 +360,7 @@ export const terminalTabs: TerminalTab[] = [
     name: "Parallel Builds",
     lines: [
       {
-        text: "docker compose -f docker-compose-multi-worker.yml up -d --scale worker=4",
+        text: "start a local nativelink cluster with 4 workers",
         delay: 0,
         instant: true,
       },

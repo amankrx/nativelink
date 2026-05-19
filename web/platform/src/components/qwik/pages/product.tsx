@@ -214,7 +214,7 @@ const Integrations = component$(() => {
     },
     {
       title: "Cloud",
-      items: "AWS, GCP, on-prem.",
+      items: "AWS, GCP, and Azure.",
     },
     {
       title: "CI",
