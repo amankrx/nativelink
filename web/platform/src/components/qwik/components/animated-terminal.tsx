@@ -167,7 +167,7 @@ export const AnimatedTerminal = component$(() => {
               }
 
               return (
-                <div key={`line-${index}`} class={`break-all overflow-wrap-anywhere ${colorClass}`}>
+                <div key={`line-${index}`} class={`break-all overflow-wrap-anywhere ${colorClass}`.trim()}>
                   {line}
                 </div>
               );
