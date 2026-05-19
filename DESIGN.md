@@ -1,7 +1,7 @@
 # NativeLink Design System
 
-**Design Direction:** Technical Warmth  
-**Version:** 1.0  
+**Design Direction:** Technical Warmth
+**Version:** 1.0
 **Last Updated:** 2026-05-01
 
 ## Overview
@@ -10,11 +10,11 @@ The NativeLink design system balances technical precision with approachability. 
 
 ## Design Principles
 
-1. **Technical but Approachable** — Monospace fonts signal technical expertise, but soft colors and rounded elements make it welcoming
-2. **Clear Segmentation** — Subtle accent lines separate sections without harsh borders
-3. **Minimal Decoration** — Every visual element serves a purpose; no decoration for decoration's sake
-4. **High Contrast Text** — Black text on warm backgrounds ensures readability
-5. **Touch-Friendly** — All interactive elements meet 44px minimum touch targets (WCAG AAA)
+1. **Technical but Approachable**: Monospace fonts signal technical expertise, but soft colors and rounded elements make it welcoming
+2. **Clear Segmentation**: Subtle accent lines separate sections without harsh borders
+3. **Minimal Decoration**: Every visual element serves a purpose; no decoration for decoration's sake
+4. **High Contrast Text**: Black text on warm backgrounds ensures readability
+5. **Touch-Friendly**: All interactive elements meet 44px minimum touch targets (WCAG AAA)
 
 ## Color Palette
 
@@ -183,7 +183,7 @@ The design system is implemented via Tailwind v4 CSS-first in `styles/tailwind.c
 ```css
 /* Custom utility classes */
 .rounded-interactive { border-radius: 4px; }
-.card-warm { 
+.card-warm {
   border: 2px solid var(--color-border);
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0.5);
@@ -212,19 +212,19 @@ The design system is implemented via Tailwind v4 CSS-first in `styles/tailwind.c
 ### Why "Technical Warmth"?
 
 NativeLink serves developers and infrastructure teams who value:
-1. **Technical credibility** — Monospace fonts signal we understand their world
-2. **Professional polish** — Clean layout and consistent spacing show attention to detail
-3. **Approachability** — Softer colors and rounded elements make the platform feel accessible, not intimidating
+1. **Technical credibility**: Monospace fonts signal we understand their world
+2. **Professional polish**: Clean layout and consistent spacing show attention to detail
+3. **Approachability**: Softer colors and rounded elements make the platform feel accessible, not intimidating
 
 ### Avoiding Pitfalls
 
-❌ **Rejected: Swiss Precision (Variant B)**  
+❌ **Rejected: Swiss Precision (Variant B)**
 Too stark and spartan. Pure black/white felt cheap despite mathematical precision.
 
-❌ **Rejected: Brutalist Minimal (Variant D)**  
+❌ **Rejected: Brutalist Minimal (Variant D)**
 Heavy 3px black borders felt aggressive. Not the welcoming tone we want.
 
-✅ **Chosen: Technical Warmth (Variant C)**  
+✅ **Chosen: Technical Warmth (Variant C)**
 Strikes the balance between technical and approachable. Clear segmentation without harsh borders.
 
 ## Visual Examples
@@ -265,5 +265,5 @@ Changed from previous pi.website variant:
 
 ---
 
-**Questions or Feedback?**  
+**Questions or Feedback?**
 Design system maintained by the NativeLink team. For questions or proposed changes, open an issue on GitHub.

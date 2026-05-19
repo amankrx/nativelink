@@ -1,11 +1,5 @@
 import { component$ } from "@builder.io/qwik";
 
-const _MockUp =
-  "https://nativelink-cdn.s3.us-east-1.amazonaws.com/nativelink_dashboard.webp";
-
-const videoMockUp =
-  "https://nativelink-cdn.s3.us-east-1.amazonaws.com/Walkthrough+of+Nativelink+Cloud.mp4";
-
 export const Hero = component$(() => {
   return (
     <div class="relative flex w-full flex-col items-center justify-evenly gap-5 pb-10 text-black overflow-hidden">
@@ -53,7 +47,7 @@ export const Hero = component$(() => {
               src="https://www.youtube.com/embed/f7kR1woFqcU"
               title="NativeLink Demo"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullscreen={true}
             />
           </div>
         </div>

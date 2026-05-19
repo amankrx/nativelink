@@ -20,7 +20,10 @@ export const QuickStart = component$(() => {
               Built for AI-Assisted Development
             </h2>
             <p class="text-lg md:text-xl text-gray-300 leading-relaxed">
-              Start in 10 minutes with Docker. Develop with Claude Code skills that guide you through storage changes, config updates, and debugging — the same workflows NativeLink engineers use in production.
+              Start in 10 minutes with Docker. Develop with Claude Code skills
+              that guide you through storage changes, config updates, and
+              debugging — the same workflows NativeLink engineers use in
+              production.
             </p>
           </div>
         </div>

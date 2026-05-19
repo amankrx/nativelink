@@ -48,53 +48,53 @@ const industries: Industry[] = [
   },
 ];
 
-const IndustryItem = component$<{ industry: Industry; index: number }>(
-  ({ industry, index }) => {
-    const isOpen = useSignal(false);
+const IndustryItem = component$<{ industry: Industry }>(({ industry }) => {
+  const isOpen = useSignal(false);
 
-    return (
-      <button
-        type="button"
-        class="w-full text-left rounded flex justify-between flex-row items-center hover:bg-[rgb(245,245,245)] cursor-pointer transition"
-        onClick$={() => {
-          isOpen.value = !isOpen.value;
-        }}
-      >
-        <div class="flex flex-col justify-center items-start border-b border-[rgb(220,220,220)] w-full">
-          <div class="w-full flex flex-row justify-between py-6">
-            <h3 class="text-[46px] font-bold text-black pr-8 leading-tight">{industry.title}</h3>
-            <svg
-              width="28px"
-              height="30px"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class={`transition-all duration-500 flex-shrink-0 ${
-                isOpen.value ? "rotate-[180deg]" : "rotate-[270deg]"
-              }`}
-            >
-              <title>Toggle industry</title>
-              <path
-                d="M4.16732 12.5L10.0007 6.66667L15.834 12.5"
-                stroke="#000000"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-          <p
-            class={`text-lg text-[rgb(60,60,60)] leading-relaxed transition-all duration-400 overflow-hidden ${
-              isOpen.value ? "max-h-96 opacity-100 pb-6" : "max-h-0 opacity-0"
+  return (
+    <button
+      type="button"
+      class="w-full text-left rounded flex justify-between flex-row items-center hover:bg-[rgb(245,245,245)] cursor-pointer transition"
+      onClick$={() => {
+        isOpen.value = !isOpen.value;
+      }}
+    >
+      <div class="flex flex-col justify-center items-start border-b border-[rgb(220,220,220)] w-full">
+        <div class="w-full flex flex-row justify-between py-6">
+          <h3 class="text-[46px] font-bold text-black pr-8 leading-tight">
+            {industry.title}
+          </h3>
+          <svg
+            width="28px"
+            height="30px"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class={`transition-all duration-500 flex-shrink-0 ${
+              isOpen.value ? "rotate-[180deg]" : "rotate-[270deg]"
             }`}
           >
-            {industry.description}
-          </p>
+            <title>Toggle industry</title>
+            <path
+              d="M4.16732 12.5L10.0007 6.66667L15.834 12.5"
+              stroke="#000000"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
         </div>
-      </button>
-    );
-  },
-);
+        <p
+          class={`text-lg text-[rgb(60,60,60)] leading-relaxed transition-all duration-400 overflow-hidden ${
+            isOpen.value ? "max-h-96 opacity-100 pb-6" : "max-h-0 opacity-0"
+          }`}
+        >
+          {industry.description}
+        </p>
+      </div>
+    </button>
+  );
+});
 
 export const Industries = component$(() => {
   return (
@@ -111,12 +111,8 @@ export const Industries = component$(() => {
         </div>
 
         <div class="flex flex-col">
-          {industries.map((industry, index) => (
-            <IndustryItem
-              key={industry.title}
-              industry={industry}
-              index={index}
-            />
+          {industries.map((industry) => (
+            <IndustryItem key={industry.title} industry={industry} />
           ))}
         </div>
       </div>

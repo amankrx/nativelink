@@ -10,12 +10,7 @@ import {
 
 import { NavLink } from "./nav-link.tsx";
 
-import {
-  GitHub,
-  GitHubIcon,
-  Slack,
-  SlackIcon,
-} from "../../media/icons/icons.tsx";
+import { GitHubIcon, SlackIcon } from "../../media/icons/icons.tsx";
 import styles from "./header.css?inline";
 
 const Logo = "/logo-light.svg";
@@ -49,9 +44,8 @@ const HeaderLogo = component$(() => {
 
 interface DesktopNavProps {
   url: URL;
-  scrolled: Signal<boolean>;
 }
-const DesktopNav = component$<DesktopNavProps>(({ url, scrolled }) => {
+const DesktopNav = component$<DesktopNavProps>(({ url }) => {
   return (
     <nav
       class={
@@ -188,7 +182,7 @@ export const Header = component$((url: URL) => {
     w-full justify-between flex-row items-center gap-2`}
     >
       <HeaderLogo />
-      <DesktopNav url={url} scrolled={scrolled} />
+      <DesktopNav url={url} />
       <Widgets />
       <Hamburger navState={navState} />
       <MobileNav url={url} navState={navState} />

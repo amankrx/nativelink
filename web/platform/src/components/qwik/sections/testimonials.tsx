@@ -1,6 +1,11 @@
-import { _jsxQ, _jsxS, component$ } from "@builder.io/qwik";
+import {
+  type QwikIntrinsicElements,
+  _jsxQ,
+  _jsxS,
+  component$,
+} from "@builder.io/qwik";
 
-const SiRockylinux = (props: Record<string, unknown>) =>
+const SiRockylinux = (props: QwikIntrinsicElements["svg"]) =>
   /* @__PURE__ */ _jsxS(
     "svg",
     {

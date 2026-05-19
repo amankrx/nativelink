@@ -122,6 +122,11 @@ Brex
 Citrix
 Menlo
 benchmarked
+[Bb]orderless
+CTAs
+keyframe
+[Mm]ockup
+[Mm]onospace
 Thanos
 Quickwit
 [Mm]iddleware

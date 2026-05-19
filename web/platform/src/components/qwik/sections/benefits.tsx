@@ -1,7 +1,5 @@
 import { component$ } from "@builder.io/qwik";
 
-import { VideoCard } from "../components/cards.tsx";
-
 const benefits = [
   {
     link: "https://nativelink-cdn.s3.us-east-1.amazonaws.com/robotics.mp4",
@@ -56,7 +54,9 @@ export const Benefits = component$(() => {
                   </video>
                 </div>
               </div>
-              <div class={index % 2 === 1 ? "md:col-start-1 md:row-start-1" : ""}>
+              <div
+                class={index % 2 === 1 ? "md:col-start-1 md:row-start-1" : ""}
+              >
                 <h3 class="text-2xl font-bold text-black mb-4 leading-tight">
                   {benefit.headline}
                 </h3>
