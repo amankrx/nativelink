@@ -105,6 +105,15 @@ export const AnimatedTerminal = component$(() => {
     };
 
     const showCommand = (line: TerminalLine) => {
+      if (line.instant) {
+        const prefix = isShellCommand(line) ? "$ " : "";
+        appendLine(prefix + line.text);
+        lineIndex++;
+        scrollToBottom();
+        schedule(animate, line.delay ?? 300);
+        return;
+      }
+
       isTyping.value = true;
       currentInput.value = line.text;
 
@@ -151,7 +160,8 @@ export const AnimatedTerminal = component$(() => {
 
       lineIndex++;
       scrollToBottom();
-      schedule(animate, line.delay ?? 100);
+      const nextDelay = line.instant ? (line.delay ?? 0) : (line.delay ?? 100);
+      schedule(animate, nextDelay);
     };
 
     const animate = () => {

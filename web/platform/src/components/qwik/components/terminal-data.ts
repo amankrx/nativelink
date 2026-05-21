@@ -99,7 +99,7 @@ export const terminalTabs: TerminalTab[] = [
   {
     name: "AI Development",
     lines: [
-      { text: "> Add retry logic to storage layer", delay: 0, instant: true },
+      { text: "> Add retry logic to storage layer", delay: 0 },
       { text: "", delay: 400 },
       {
         text: "STATUS:Generating.. (2s · ↑ 3.2k tokens · thought for 1s)",
@@ -220,7 +220,7 @@ export const terminalTabs: TerminalTab[] = [
   {
     name: "Config Update",
     lines: [
-      { text: "> Enable S3 caching with 7-day TTL", delay: 0, instant: true },
+      { text: "> Enable S3 caching with 7-day TTL", delay: 0 },
       { text: "", delay: 400 },
       {
         text: "STATUS:Generating.. (2s · ↑ 2.7k tokens · thought for 1s)",
@@ -284,7 +284,6 @@ export const terminalTabs: TerminalTab[] = [
       {
         text: "> Debug LLVM build timeout on worker-us-east-1a-003",
         delay: 0,
-        instant: true,
       },
       { text: "", delay: 400 },
       {
@@ -360,11 +359,33 @@ export const terminalTabs: TerminalTab[] = [
     name: "Parallel Builds",
     lines: [
       {
-        text: "start a local nativelink cluster with 4 workers",
+        text: "> start a local nativelink cluster with 4 workers",
         delay: 0,
-        instant: true,
       },
       { text: "", delay: 400 },
+      {
+        text: "STATUS:Generating.. (1s · ↑ 1.2k tokens · thought for 0s)",
+        delay: 150,
+        instant: true,
+      },
+      {
+        text: "STATUS:Generating.. (2s · ↑ 1.3k tokens · thought for 1s)",
+        delay: 150,
+        instant: true,
+      },
+      { text: "", delay: 300 },
+      {
+        text: "Using /nativelink-deploy skill...",
+        delay: 300,
+        instant: true,
+      },
+      { text: "", delay: 250 },
+      {
+        text: "Setting up Docker Compose with 4 worker instances...",
+        delay: 300,
+        instant: true,
+      },
+      { text: "", delay: 300 },
       {
         text: "Creating network nativelink_default",
         delay: 200,

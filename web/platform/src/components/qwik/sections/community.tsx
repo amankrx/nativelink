@@ -47,11 +47,11 @@ export const Community = component$(() => {
               {typeof communityLink.icon === "string" ? (
                 <img src={communityLink.icon} alt="" class="w-10 h-10" />
               ) : (
-                <div class="w-10 flex items-center justify-center">
+                <div class="flex items-center justify-center">
                   {communityLink.icon}
                 </div>
               )}
-              <div class="font-medium">{communityLink.name}</div>
+              <div class="font-medium text-lg">{communityLink.name}</div>
             </div>
           </a>
         ))}

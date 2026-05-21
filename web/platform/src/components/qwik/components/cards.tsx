@@ -82,24 +82,24 @@ const pricing = [
 
 export const PricingCard = component$(() => {
   return (
-    <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
       {pricing.map((plan) => (
         <div
-          id="Card"
           key={plan.title}
-          class="flex flex-col gap-5 items-center justify-between p-6 w-80 rounded-interactive bg-glass shadow-lg shadow-glass backdrop-blur-[8px] border-2 border-glassBorder"
+          class="card-warm p-10 flex flex-col gap-6"
         >
-          <h2 class="text-2xl font-semibold text-white">{plan.title}</h2>
-          <ul class="my-4 text-sm text-gray-200 space-y-2">
+          <h2 class="text-3xl font-bold text-black">{plan.title}</h2>
+          <ul class="flex-1 space-y-3 text-lg text-[rgb(60,60,60)]">
             {plan.items.map((item) => (
-              <li key={item} class="list-disc">
-                {item}
+              <li key={item} class="flex items-start gap-3">
+                <span class="text-black text-xl flex-shrink-0">•</span>
+                <span>{item}</span>
               </li>
             ))}
           </ul>
           <a
             href={plan.cta.link}
-            class="mt-auto px-4 py-2 bg-black text-white rounded-interactive shadow-md hover:bg-[rgb(40,40,40)] min-h-[48px] flex items-center justify-center"
+            class="mt-auto bg-black text-white rounded-interactive hover:bg-[rgb(40,40,40)] transition-colors duration-200 px-8 min-h-[48px] flex items-center justify-center border-2 border-black font-semibold no-underline"
           >
             {plan.cta.title}
           </a>

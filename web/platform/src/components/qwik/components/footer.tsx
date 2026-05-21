@@ -167,7 +167,7 @@ export const Footer = component$(() => {
                   alt="Nativelink Logo"
                 />
               </a>
-              <span class="text-black font-normal">© Trace Machina 2025</span>
+              <span class="text-black font-normal">© Trace Machina 2026</span>
             </div>
           </div>
         </div>

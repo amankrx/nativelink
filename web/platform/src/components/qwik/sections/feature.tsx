@@ -31,13 +31,13 @@ export const Features = component$(() => {
 
       {/* Asymmetric 2-up layout - eliminates AI template pattern */}
       <div class="max-w-6xl mx-auto px-6 w-full">
-        <div class="grid md:grid-cols-2 gap-12">
+        <div class="grid md:grid-cols-2 gap-8 items-start">
           {/* Left: Primary feature with larger visual weight */}
-          <div class="flex flex-col gap-8">
-            <div class="flex items-start gap-4">
+          <div class="flex flex-col gap-12">
+            <div class="flex items-start gap-6">
               <div class="flex-shrink-0 mt-1">{products.cas.icon}</div>
               <div>
-                <h3 class="text-2xl font-bold text-black mb-3 leading-tight">
+                <h3 class="text-2xl font-bold text-black mb-4 leading-tight">
                   {products.cas.headline}
                 </h3>
                 <p class="text-lg text-[rgb(60,60,60)] leading-relaxed">
@@ -46,10 +46,10 @@ export const Features = component$(() => {
               </div>
             </div>
 
-            <div class="flex items-start gap-4">
+            <div class="flex items-start gap-6">
               <div class="flex-shrink-0 mt-1">{products.security.icon}</div>
               <div>
-                <h3 class="text-2xl font-bold text-black mb-3 leading-tight">
+                <h3 class="text-2xl font-bold text-black mb-4 leading-tight">
                   {products.security.headline}
                 </h3>
                 <p class="text-lg text-[rgb(60,60,60)] leading-relaxed">
@@ -60,9 +60,9 @@ export const Features = component$(() => {
           </div>
 
           {/* Right: Feature with emphasis */}
-          <div class="bg-[rgb(248,247,244)] border-2 border-[rgb(220,220,220)] rounded-[4px] p-8 flex flex-col justify-center">
+          <div class="bg-[rgb(248,247,244)] border-2 border-[rgb(220,220,220)] rounded-[4px] p-10 flex flex-col">
             <div class="mb-6">{products.rbe.icon}</div>
-            <h3 class="text-3xl font-bold text-black mb-4 leading-tight">
+            <h3 class="text-3xl font-bold text-black mb-6 leading-tight">
               {products.rbe.headline}
             </h3>
             <p class="text-xl text-[rgb(60,60,60)] leading-relaxed">

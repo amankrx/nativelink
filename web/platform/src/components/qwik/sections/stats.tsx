@@ -3,7 +3,7 @@ import { component$ } from "@builder.io/qwik";
 export const Stats = component$(() => {
   const stats = [
     {
-      value: "4x",
+      value: "4-15x",
       label: "faster builds",
       description:
         "Demonstrated on LLVM, one of the world's largest C++ codebases.",

@@ -270,7 +270,7 @@ const CaseStudy = component$(() => {
           </div>
           <div class="mt-4">
             <a
-              href="https://discourse.llvm.org/t/rfc-enabling-public-remote-cache-for-llvm-project/83568"
+              href="https://reidkleckner.dev/posts/llvm-recc-nativelink/"
               target="_blank"
               rel="noreferrer"
               class="inline-flex items-center text-black font-medium hover:opacity-70 transition-opacity"
