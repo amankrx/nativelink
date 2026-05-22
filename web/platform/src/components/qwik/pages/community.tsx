@@ -51,23 +51,40 @@ export const CommunityPage = component$(() => {
           </h1>
 
           {/* Connect Cards */}
-          <div class="grid md:grid-cols-2 gap-8 mt-16">
-            {connectOn.map(({ title, description, link, icon }) => (
-              <a
-                key={title}
-                href={link}
-                aria-label={title}
-                class="card-warm p-8 flex flex-col gap-6 hover:-translate-y-1 transition-all duration-200 no-underline"
-              >
-                <div class="flex items-center gap-4">
-                  <div class="flex-shrink-0">{icon}</div>
-                  <h3 class="text-2xl font-bold text-black">{title}</h3>
-                </div>
-                <p class="text-lg text-[rgb(60,60,60)] leading-relaxed">
-                  {description}
-                </p>
-              </a>
-            ))}
+          <div class="grid md:grid-cols-3 gap-8 mt-16">
+            <a
+              href="/docs/introduction/setup"
+              aria-label="Read the Docs"
+              class="card-warm p-8 flex flex-col gap-6 hover:-translate-y-1 transition-all duration-200 no-underline items-center text-center"
+            >
+              <svg class="w-16 h-16" viewBox="0 0 24 24" fill="none" stroke="rgb(100,100,255)" stroke-width="2">
+                <rect x="2" y="3" width="20" height="18" rx="2" />
+                <path d="M8 7h8M8 11h8M8 15h4" />
+              </svg>
+              <h3 class="text-2xl font-bold text-black">Read the Docs</h3>
+            </a>
+
+            <a
+              href="https://forms.gle/LtaWSixEC6bYi5xF7"
+              aria-label="Join our Slack"
+              class="card-warm p-8 flex flex-col gap-6 hover:-translate-y-1 transition-all duration-200 no-underline items-center text-center"
+            >
+              <div class="flex-shrink-0">
+                <Slack />
+              </div>
+              <h3 class="text-2xl font-bold text-black">Join our Slack</h3>
+            </a>
+
+            <a
+              href="https://github.com/tracemachina/nativelink"
+              aria-label="Clone the Repo"
+              class="card-warm p-8 flex flex-col gap-6 hover:-translate-y-1 transition-all duration-200 no-underline items-center text-center"
+            >
+              <div class="flex-shrink-0">
+                <GitHub />
+              </div>
+              <h3 class="text-2xl font-bold text-black">Clone the Repo</h3>
+            </a>
           </div>
         </div>
       </div>

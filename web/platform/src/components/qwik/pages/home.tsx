@@ -1,7 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 
 import { Benefits } from "../sections/benefits.tsx";
-import { Community } from "../sections/community.tsx";
 import { Contributors } from "../sections/contributors.tsx";
 import { CTA } from "../sections/cta.tsx";
 import { Features } from "../sections/feature.tsx";
@@ -25,7 +24,6 @@ export const LandingPage = component$(() => {
       <Benefits />
       <Industries />
       <CTA />
-      <Community />
     </main>
   );
 });

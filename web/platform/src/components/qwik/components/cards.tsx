@@ -67,6 +67,14 @@ const pricing = [
     },
   },
   {
+    title: "Cloud",
+    items: ["$1000/month"],
+    cta: {
+      title: "Get Started",
+      link: "https://dev.nativelink.com/",
+    },
+  },
+  {
     title: "Enterprise",
     items: [
       "Custom pricing",
@@ -82,7 +90,7 @@ const pricing = [
 
 export const PricingCard = component$(() => {
   return (
-    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
       {pricing.map((plan) => (
         <div
           key={plan.title}

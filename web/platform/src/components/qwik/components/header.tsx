@@ -34,7 +34,8 @@ const HeaderLogo = component$(() => {
     <a href="/" class="h-full shrink-0 z-50 flex items-center">
       <img
         src={Logo}
-        loading="lazy"
+        loading="eager"
+        fetchpriority="high"
         class="w-44 md:w-[200px]"
         alt="Nativelink Logo"
       />
@@ -178,7 +179,7 @@ export const Header = component$((url: URL) => {
   return (
     <header
       class={`${scrolled.value ? "bg-[rgb(248,247,244)]/95 backdrop-blur-sm border-b border-[rgb(220,220,220)]" : "bg-transparent"}
-				fixed left-0 right-0 top-0 z-30 flex h-16 py-6 px-4 md:px-8 transition-all duration-500
+				fixed left-0 right-0 top-8 z-30 flex h-16 py-6 px-4 md:px-8 transition-all duration-500
     w-full justify-between flex-row items-center gap-2`}
     >
       <HeaderLogo />
