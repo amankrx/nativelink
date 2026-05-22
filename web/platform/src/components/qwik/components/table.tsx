@@ -95,11 +95,15 @@ export const FeatureTable = component$(() => {
         <tbody>
           {features.map((item) => (
             <tr key={item.feature} class="border-b border-[rgb(220,220,220)]">
-              <td class="p-4 border-r-2 border-[rgb(220,220,220)] text-black font-semibold">{item.feature}</td>
+              <td class="p-4 border-r-2 border-[rgb(220,220,220)] text-black font-semibold">
+                {item.feature}
+              </td>
               <td class="p-4 border-r-2 border-[rgb(220,220,220)] text-center text-[rgb(60,60,60)]">
                 {item.free}
               </td>
-              <td class="p-4 text-center text-[rgb(60,60,60)]">{item.enterprise}</td>
+              <td class="p-4 text-center text-[rgb(60,60,60)]">
+                {item.enterprise}
+              </td>
             </tr>
           ))}
         </tbody>

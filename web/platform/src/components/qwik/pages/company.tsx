@@ -35,10 +35,19 @@ export const CompanyPage = component$(() => {
                 NativeLink is built by Trace Machina
               </h1>
               <p class="text-xl text-black leading-relaxed">
-                At Trace Machina, our mission is to accelerate the reindustrialization of the world in the machine age.
+                At Trace Machina, our mission is to accelerate the
+                reindustrialization of the world in the machine age.
               </p>
               <p class="text-lg text-[rgb(60,60,60)] leading-relaxed">
-                We empower engineers to build the future of technology by making advanced build and simulation processes that can move at machine speed. Our products amplify the rate at which companies can innovate across mission critical industries from Semiconductors, Advanced Robotics, Autonomous Vehicles, Artificial Intelligence Research to Life Sciences and Financial Services. Our commitment is to amplify execution across any environment, ensuring that developers can focus on creating transformative technologies that drive forward progress on behalf of humanity.
+                We empower engineers to build the future of technology by making
+                advanced build and simulation processes that can move at machine
+                speed. Our products amplify the rate at which companies can
+                innovate across mission critical industries from Semiconductors,
+                Advanced Robotics, Autonomous Vehicles, Artificial Intelligence
+                Research to Life Sciences and Financial Services. Our commitment
+                is to amplify execution across any environment, ensuring that
+                developers can focus on creating transformative technologies
+                that drive forward progress on behalf of humanity.
               </p>
             </div>
             <div class="flex justify-center items-center">

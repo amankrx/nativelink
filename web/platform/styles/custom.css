@@ -19,6 +19,55 @@ html {
    scroll-behavior: smooth;
 }
 
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] .main-frame,
+:root[data-theme="dark"] .main-pane,
+:root[data-theme="dark"] main,
+:root[data-theme="dark"] .content-panel {
+   background-color: var(--sl-color-bg);
+   color: var(--sl-color-text);
+}
+
+:root[data-theme="dark"] .header,
+:root[data-theme="dark"] .sidebar-pane,
+:root[data-theme="dark"] .sidebar-content,
+:root[data-theme="dark"] .right-sidebar-panel,
+:root[data-theme="dark"][data-has-hero] header {
+   background-color: var(--sl-color-bg-nav);
+   border-color: var(--sl-color-hairline);
+}
+
+:root[data-theme="dark"] .sidebar-content a:not([aria-current="page"]) {
+   color: var(--sl-color-gray-2);
+}
+
+:root[data-theme="dark"] .sidebar-content a:not([aria-current="page"]):hover,
+:root[data-theme="dark"] .sidebar-content a:not([aria-current="page"]):focus {
+   color: var(--sl-color-white);
+}
+
+:root[data-theme="dark"] .right-sidebar-panel a {
+   color: var(--sl-color-gray-3);
+}
+
+:root[data-theme="dark"] .right-sidebar-panel a:hover,
+:root[data-theme="dark"] .right-sidebar-panel a:focus {
+   color: var(--sl-color-white);
+}
+
+:root[data-theme="dark"] .sl-markdown-content a:not(:where(.not-content *)) {
+   color: var(--sl-color-text-accent);
+}
+
+:root[data-theme="dark"]
+   .sl-markdown-content
+   a:hover:not(:where(.not-content *)),
+:root[data-theme="dark"]
+   .sl-markdown-content
+   a:focus:not(:where(.not-content *)) {
+   color: var(--sl-color-white);
+}
+
 .buttons {
    display: flex;
    justify-content: center;

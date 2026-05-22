@@ -92,10 +92,7 @@ export const PricingCard = component$(() => {
   return (
     <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
       {pricing.map((plan) => (
-        <div
-          key={plan.title}
-          class="card-warm p-10 flex flex-col gap-6"
-        >
+        <div key={plan.title} class="card-warm p-10 flex flex-col gap-6">
           <h2 class="text-3xl font-bold text-black">{plan.title}</h2>
           <ul class="flex-1 space-y-3 text-lg text-[rgb(60,60,60)]">
             {plan.items.map((item) => (

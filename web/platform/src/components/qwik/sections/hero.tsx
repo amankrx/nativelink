@@ -16,8 +16,7 @@ export const Hero = component$(() => {
             <p class="text-lg md:text-xl text-[rgb(60,60,60)] max-w-[800px] leading-relaxed animate-fade-in-up animation-delay-200">
               NativeLink is the parallel compute platform that keeps builds fast
               while your codebase — and your agents — multiply. Rust-powered.
-              Open source. Trusted in production for over a billion requests a
-              month.
+              Open source. Trusted in production by thousands of developers.
             </p>
           </div>
         </div>

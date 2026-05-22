@@ -35,7 +35,7 @@ const HeaderLogo = component$(() => {
       <img
         src={Logo}
         loading="eager"
-        fetchpriority="high"
+        fetchPriority="high"
         class="w-44 md:w-[200px]"
         alt="Nativelink Logo"
       />
