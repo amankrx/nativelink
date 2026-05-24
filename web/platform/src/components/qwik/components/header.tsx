@@ -48,18 +48,14 @@ interface DesktopNavProps {
 }
 const DesktopNav = component$<DesktopNavProps>(({ url }) => {
   return (
-    <nav
-      class={
-        "flex-1 max-w-5xl h-14 hidden md:flex justify-center items-center z-40 transition-all duration-300"
-      }
-    >
-      <ul class="hidden md:flex w-full backdrop-filter backdrop-blur-md text-black px-4 border-[rgb(220,220,220)] z-60 gap-2 rounded-interactive bg-white/80 border-2 h-12 justify-center items-center font-mono">
+    <nav class="flex-1 max-w-3xl hidden md:flex justify-center items-center z-40">
+      <ul class="flex w-full text-black px-3 border border-[rgb(210,210,210)] gap-0.5 rounded-lg bg-white/90 h-10 justify-center items-center text-sm">
         {links.map((link) => (
           <NavLink
             key={link.name}
             pathName={url.pathName}
             href={link.href}
-            activeClass="font-semibold"
+            activeClass="bg-[rgb(240,238,235)] font-medium rounded-md"
           >
             {link.name}
           </NavLink>
@@ -77,17 +73,17 @@ interface MobileNavProps {
 const MobileNav = component$<MobileNavProps>(({ url, navState }) => {
   return (
     <nav
-      class={`fixed top-0 h-full z-40 right-0 w-[100svw] bg-white border-l border-black/10 transition-transform duration-300 ease-in-out ${
+      class={`fixed top-0 h-full z-40 right-0 w-[100svw] bg-[rgb(248,247,244)] transition-transform duration-300 ease-in-out ${
         navState.value ? "translate-x-0" : "translate-x-full"
       } md:hidden`}
     >
-      <ul class="text-black w-full h-full flex flex-col justify-center items-center gap-10">
+      <ul class="text-black w-full h-full flex flex-col justify-center items-center gap-8 text-lg">
         {links.map((link) => (
           <NavLink
             key={link.name}
             pathName={url.pathName}
             href={link.href}
-            activeClass="font-bold border rounded-full border-black/20 px-4 py-2"
+            activeClass="font-semibold"
           >
             {link.name}
           </NavLink>
@@ -152,7 +148,7 @@ const Widgets = component$(() => {
         id="button"
         href="/docs/introduction/setup#-quickstart"
         target="_blank"
-        class="hidden md:flex bg-black text-white hover:bg-[rgb(40,40,40)] transition-colors duration-200 px-6 min-h-[48px] rounded-interactive justify-center items-center border-2 border-black whitespace-nowrap font-mono text-sm"
+        class="hidden md:flex bg-black text-white hover:bg-[rgb(30,30,30)] transition-colors duration-200 px-5 h-9 rounded-lg justify-center items-center whitespace-nowrap text-sm font-medium tracking-tight"
         rel="noreferrer"
       >
         Get Started
@@ -178,9 +174,9 @@ export const Header = component$((url: URL) => {
 
   return (
     <header
-      class={`${scrolled.value ? "bg-[rgb(248,247,244)]/95 backdrop-blur-sm border-b border-[rgb(220,220,220)]" : "bg-transparent"}
-				fixed left-0 right-0 top-8 z-30 flex h-16 py-6 px-4 md:px-8 transition-all duration-500
-    w-full justify-between flex-row items-center gap-2`}
+      class={`${scrolled.value ? "bg-[rgb(248,247,244)]/96 backdrop-blur-md shadow-[0_1px_0_rgb(210,210,210)]" : "bg-transparent"}
+        fixed left-0 right-0 top-8 z-30 flex h-14 px-4 md:px-8 transition-all duration-300
+        w-full justify-between flex-row items-center gap-3`}
     >
       <HeaderLogo />
       <DesktopNav url={url} />

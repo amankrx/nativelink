@@ -72,104 +72,106 @@ export const Footer = component$(() => {
   });
 
   return (
-    <footer class="relative w-full text-black border-t border-[rgb(180,180,180)] py-16 md:py-24 bg-[rgb(248,247,244)]">
-      <div class="relative z-10 flex h-full w-full flex-col items-center justify-center gap-12 md:flex-row md:gap-0 px-6">
-        <div class="flex w-full items-center justify-center text-[2.5rem] leading-none tracking-normal md:text-[52px]">
-          <div class="w-full flex flex-col items-center gap-4">
-            <div class="text-center font-bold">
+    <footer class="w-full text-black border-t border-[rgb(210,210,210)] bg-[rgb(248,247,244)]">
+      <div class="max-w-6xl mx-auto px-6 md:px-10">
+        {/* ── CTA strip ── */}
+        <div class="py-14 md:py-16 border-b border-[rgb(220,220,220)]">
+          <div class="max-w-2xl">
+            <h2 class="text-2xl md:text-[2rem] font-bold leading-snug tracking-tight mb-2">
               Let's build at the speed your code is being written.
-            </div>
-            <div class="text-lg md:text-xl text-[rgb(60,60,60)] text-center">
-              Open source. Free cloud tier. Self-host when you're ready.
-            </div>
+            </h2>
+            <p class="text-sm md:text-base text-[rgb(80,80,80)]">
+              Open source. Free cloud tier. Self-host when you&apos;re ready.
+            </p>
           </div>
         </div>
 
-        <div class="flex w-full items-center justify-center ">
-          <div class="flex w-3/4 flex-col items-start gap-10">
+        {/* ── Links + Newsletter grid ── */}
+        <div class="py-12 grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-[rgb(220,220,220)]">
+          {/* Nav links */}
+          <div class="flex flex-col gap-2.5">
+            <p class="text-xs font-semibold uppercase tracking-widest text-[rgb(120,120,120)] mb-1">
+              Product
+            </p>
+            {_links.map((link) => (
+              <a
+                key={link.name}
+                href={link.link}
+                class="text-sm text-[rgb(50,50,50)] hover:text-black transition-colors duration-150 no-underline"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+
+          {/* Legal links */}
+          <div class="flex flex-col gap-2.5">
+            <p class="text-xs font-semibold uppercase tracking-widest text-[rgb(120,120,120)] mb-1">
+              Company
+            </p>
+            {law.map((link) => (
+              <a
+                key={link.name}
+                href={link.link}
+                class="text-sm text-[rgb(50,50,50)] hover:text-black transition-colors duration-150 no-underline"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+
+          {/* Newsletter */}
+          <div class="flex flex-col gap-3">
+            <p class="text-xs font-semibold uppercase tracking-widest text-[rgb(120,120,120)] mb-1">
+              Newsletter
+            </p>
             <form
-              class="py-5 flex w-full max-w-md flex-col items-start justify-center gap-4 md:flex-row md:items-end md:justify-start"
+              class="flex flex-col gap-2.5"
               onSubmit$={(e) => e.preventDefault()}
             >
-              <div class="w-full">
-                <label class="mb-2 block text-base font-normal" for="email">
-                  Sign up for our newsletter *
-                </label>
-                <input
-                  class="flex w-full bg-white appearance-none rounded-interactive border-2 border-[rgb(220,220,220)] px-4 py-3 leading-tight text-black focus:outline-none focus:border-black"
-                  id="email"
-                  name="data.email"
-                  type="email"
-                  placeholder="Enter email address"
-                  bind:value={email}
-                  required={true}
-                  autocomplete="email"
-                />
-                {message.value && (
-                  <div
-                    class={`w-full text-center mt-2 text-sm ${
-                      message.value.toLowerCase().includes("failed")
-                        ? "text-red-600"
-                        : "text-green-600"
-                    }`}
-                  >
-                    {message.value}
-                  </div>
-                )}
-              </div>
-              <div class="w-full flex items-center justify-between">
-                <button
-                  class="w-full rounded-interactive bg-black px-6 py-3 min-h-[48px] font-normal text-white hover:bg-[rgb(40,40,40)] focus:outline-none transition-colors duration-200"
-                  type="button"
-                  onClick$={handleSubmit}
+              <label class="text-sm text-[rgb(50,50,50)]" for="footer-email">
+                Stay up to date with NativeLink.
+              </label>
+              <input
+                class="w-full bg-white border border-[rgb(210,210,210)] rounded-lg px-3 py-2.5 text-sm text-black placeholder-[rgb(160,160,160)] focus:outline-none focus:border-[rgb(100,100,100)] transition-colors"
+                id="footer-email"
+                name="data.email"
+                type="email"
+                placeholder="you@example.com"
+                bind:value={email}
+                required={true}
+                autocomplete="email"
+              />
+              {message.value && (
+                <p
+                  class={`text-xs ${
+                    message.value.toLowerCase().includes("failed")
+                      ? "text-red-600"
+                      : "text-green-700"
+                  }`}
                 >
-                  Subscribe
-                </button>
-              </div>
+                  {message.value}
+                </p>
+              )}
+              <button
+                class="w-full rounded-lg bg-black text-white text-sm font-medium py-2.5 px-4 hover:bg-[rgb(30,30,30)] focus:outline-none transition-colors duration-200"
+                type="button"
+                onClick$={handleSubmit}
+              >
+                Subscribe
+              </button>
             </form>
-
-            <div
-              id="footer-links"
-              class="w-full flex flex-col justiy-center gap-3 items-start font-normal"
-            >
-              {_links.map((link, _index) => (
-                <a
-                  key={link.name}
-                  href={link.link}
-                  class="hover:opacity-60 transition-opacity"
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
-
-            <div
-              id="footer-links"
-              class="w-full flex flex-col justiy-center gap-3 items-start font-normal"
-            >
-              {law.map((link, _index) => (
-                <a
-                  key={link.name}
-                  href={link.link}
-                  class="hover:opacity-60 transition-opacity"
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
-
-            <div class="flex flex-col gap-2">
-              <a href="/" class="z-50">
-                <img
-                  src={Logo}
-                  loading="lazy"
-                  class="w-32"
-                  alt="Nativelink Logo"
-                />
-              </a>
-              <span class="text-black font-normal">© Trace Machina 2026</span>
-            </div>
           </div>
+        </div>
+
+        {/* ── Bottom bar ── */}
+        <div class="py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <a href="/" class="shrink-0">
+            <img src={Logo} loading="lazy" class="w-28" alt="Nativelink Logo" />
+          </a>
+          <span class="text-xs text-[rgb(120,120,120)]">
+            © Trace Machina 2026
+          </span>
         </div>
       </div>
     </footer>
